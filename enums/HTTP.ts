@@ -1,0 +1,20 @@
+export enum HTTP_METHOD {
+    GET = "GET",
+    POST = "POST",
+    PUT = "PUT",
+    PATCH = "PATCH",
+    DELETE = "DELETE",
+}
+
+export enum HTTP_STATUS {
+    OK = 200,
+    CREATED = 201,
+    NO_CONTENT = 204,
+    BAD_REQUEST = 400,
+    UN_AUTHORIZED = 401,
+    FORBIDDEN = 403,
+    NOT_FOUND = 404,
+    INTERNAL_SERVER_ERROR = 500,
+    TIME_OUT = 408,
+    VALIDATION_FAILURE = 422,
+}
