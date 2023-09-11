@@ -1,6 +1,6 @@
 export type Product = {
     data: ProductData[];
-    meta?: Meta;
+    meta: Meta;
 }
 
 export type ProductData = {
@@ -14,11 +14,12 @@ export type Attributes = {
     price?: number;
     description?: string;
     size?: Size;
-    originalPrice?: number | null;
+    original_price?: number;
     slug?: string;
     createdAt?: Date;
     updatedAt?: Date;
     publishedAt?: Date;
+    thumbnail: Thumbnail;
 }
 
 export type Size = {
@@ -39,4 +40,13 @@ export type Pagination = {
     pageSize?: number;
     pageCount?: number;
     total?: number;
+}
+
+type Thumbnail = {
+    data: {
+        id: number;
+        attributes: {
+            url: string
+        }
+    }
 }

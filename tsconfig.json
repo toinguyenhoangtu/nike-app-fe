@@ -16,12 +16,25 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "baseUrl": ".",
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "@/*": ["../*"]
+      "@redux-hook": ["redux/app/hook"],
+      "@components/*": ["components/*", "stories/components/*"],
+      // "@components/*": ["stories/components/*"],
+      "@configs/*": ["configs/*"],
+      "@enums/*": ["enums/*"],
+      "@hooks/*": ["hooks/*"],
+      "@redux/*": ["redux/store/slice/*"],
+      "@helpers/*": ["helpers/*"],
+      "@services/*": ["services/*"],
+      "@request-providers/*": ["services/request/providers/*"],
+      "@page-providers/*": ["services/page-providers/*"],
+      "@views/*": ["views/*"],
+      "@styles/*": ["styles/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "exclude": ["../../node_modules", "node_modules"]
 }

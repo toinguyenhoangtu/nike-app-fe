@@ -3,5 +3,5 @@ export const getDiscountedPricePercentage = (originalPrice: number, discountedPr
 
     const discountPercentage = (discount / originalPrice) * 100;
 
-    return discountPercentage.toFixed(2);
+    return parseFloat(discountPercentage.toFixed(2));
 };
