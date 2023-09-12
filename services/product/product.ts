@@ -10,4 +10,3 @@ export const getAllProduct = async () => {
         HTTP_METHOD.GET
     )
 }
-

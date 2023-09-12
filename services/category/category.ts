@@ -11,3 +11,19 @@ export const getAllCategories = async () => {
     )
 }
 
+export const fetchDataQuerySlug = async (slug?: string | any) => {
+    return APIClient<CategoryData>(
+        `/api/categories?filters[slug][$eq]=${slug}`,
+        HTTP_METHOD.GET
+    )
+}
+
+// pagination
+export const fetchDataPagination = async (
+    slug?: string | any, maxResult?: number
+) => {
+    return APIClient<any>(
+        `/api/products?populate=*&[filters][categories][slug][$eq]=${slug}&pagination[page]=1&pagination[pageSize]=${maxResult}`
+        , HTTP_METHOD.GET
+    )
+}
