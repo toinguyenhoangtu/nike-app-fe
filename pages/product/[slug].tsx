@@ -64,11 +64,15 @@ export async function getStaticProps({ params: { slug } }: any) {
 
 export default function ProductDetail({ product, products }: IProp) {
     const { query } = useRouter();
-    const [selectedSize, setSelectedSize] = useState<string>();
+    const [selectedSize, setSelectedSize] = useState<string>('');
     const [showError, setShowError] = useState<boolean>(false);
     const attr = product?.data?.[0]?.attributes?.categories;
     const data = product?.data?.[0]?.attributes;
     if (!data) return null;
+    useEffect(()=>{
+        setSelectedSize('')
+        return () => setSelectedSize('');
+    },[query])
     return (
         <div className="w-full md:py-10">
             <ToastContainer />
@@ -147,10 +151,10 @@ export default function ProductDetail({ product, products }: IProp) {
                                                     : ""
                                                 }`}
                                             onClick={() => {
-                                                if (item.enabled == true) {
-                                                    setSelectedSize(item.size);
-                                                    setShowError(false)
-                                                }
+                                                setSelectedSize(prevSize => {
+                                                    return prevSize === item.size ? '' : item.size;
+                                                  });
+                                                  setShowError(false);
                                             }}
                                        >
                                         {item.size}
