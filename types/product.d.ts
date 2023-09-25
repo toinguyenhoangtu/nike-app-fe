@@ -7,16 +7,23 @@ export type Product = {
 
 export type ProductData = {
     id: number;
-    attributes?: Attributes;
+    attributes: Attributes;
 }
 
 export type Attributes = {
     categories: CategoryData
-    name?: string;
+    name: string;
     subtitle?: string;
-    price?: number;
+    price: number;
     description?: string;
-    size?: Size;
+    size: {
+        data: {
+            size: string;
+            enabled: boolean;
+        }[];
+    };
+    url: string;
+    images: Image;
     original_price?: number;
     slug?: string;
     createdAt?: Date;
@@ -27,6 +34,95 @@ export type Attributes = {
 
 export type Size = {
     data: SizeData;
+}
+
+export type Image = {
+    data: {
+        id: number;
+        attributes: {
+            name: string;
+            alternativeText: null | any; // Kiểu dữ liệu của alternativeText chưa rõ ràng
+            caption: null | any; // Kiểu dữ liệu của caption chưa rõ ràng
+            width: number;
+            height: number;
+            formats: {
+                large: {
+                    ext: string;
+                    url: string;
+                    hash: string;
+                    mime: string;
+                    name: string;
+                    path: null | any; // Kiểu dữ liệu của path chưa rõ ràng
+                    size: number;
+                    width: number;
+                    height: number;
+                    provider_metadata: {
+                        public_id: string;
+                        resource_type: string;
+                    };
+                };
+                small: {
+                    ext: string;
+                    url: string;
+                    hash: string;
+                    mime: string;
+                    name: string;
+                    path: null | any; // Kiểu dữ liệu của path chưa rõ ràng
+                    size: number;
+                    width: number;
+                    height: number;
+                    provider_metadata: {
+                        public_id: string;
+                        resource_type: string;
+                    };
+                };
+                medium: {
+                    ext: string;
+                    url: string;
+                    hash: string;
+                    mime: string;
+                    name: string;
+                    path: null | any; // Kiểu dữ liệu của path chưa rõ ràng
+                    size: number;
+                    width: number;
+                    height: number;
+                    provider_metadata: {
+                        public_id: string;
+                        resource_type: string;
+                    };
+                };
+                thumbnail: {
+                    ext: string;
+                    url: string;
+                    hash: string;
+                    mime: string;
+                    name: string;
+                    path: null | any; // Kiểu dữ liệu của path chưa rõ ràng
+                    size: number;
+                    width: number;
+                    height: number;
+                    provider_metadata: {
+                        public_id: string;
+                        resource_type: string;
+                    };
+                };
+            };
+            hash: string;
+            ext: string;
+            mime: string;
+            size: number;
+            url: string;
+            previewUrl: null | any; // Kiểu dữ liệu của previewUrl chưa rõ ràng
+            provider: string;
+            provider_metadata: {
+                public_id: string;
+                resource_type: string;
+            };
+            createdAt: string;
+            updatedAt: string;
+        };
+    }[];
+
 }
 
 export type SizeData = {
