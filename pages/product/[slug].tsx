@@ -1,6 +1,6 @@
 import { fetchProductEqual, fetchProductNotEqual, getAllProduct } from "@services/product/product";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ToastContainer } from "react-toastify";
 import { Product } from "types/product";
 import 'react-toastify/dist/ReactToastify.css';
@@ -8,6 +8,7 @@ import Wrapper from "@components/Wrapper/Wrapper";
 import BreardCumb from "@components/BreardCumb/BreardCumb";
 import ProductDetailsCarousel from "@components/ProductDetailsCarousel/ProductDetailsCarousel";
 import { getDiscountedPricePercentage } from "@helpers/promotion";
+import RelativedProduct from "@components/RelativedProduct/RelativedProduct";
 
 type IProp = {
     product: Product;
@@ -67,7 +68,6 @@ export default function ProductDetail({ product, products }: IProp) {
     const [showError, setShowError] = useState<boolean>(false);
     const attr = product?.data?.[0]?.attributes?.categories;
     const data = product?.data?.[0]?.attributes;
-    
     if (!data) return null;
     return (
         <div className="w-full md:py-10">
@@ -90,7 +90,7 @@ export default function ProductDetail({ product, products }: IProp) {
                         </div>
 
                         <div className="text-lg font-semibold mb-5">
-                            {product?.data?.[0]?.attributes?.subtitle}
+                            {data.subtitle}
                         </div>
                         <div className="flex items-center">
                             <p className="mr-2 text-lg font-semibold">
@@ -161,6 +161,8 @@ export default function ProductDetail({ product, products }: IProp) {
                         </div>
                     </form>
                 </div>
+                {/* Slider Relative product */}
+                <RelativedProduct products={products} />
             </Wrapper>
         </div>
     )
