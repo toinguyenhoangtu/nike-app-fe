@@ -24,9 +24,23 @@ export const useProductFilter = (slug: string, pageIndex?: number, maxResult?: n
     return { response, error, isLoading };
 }
 
-export const useProductFilterPage = (slug: string, maxResult: number) =>{
+export const useProductFilterPage = (slug: string, maxResult: number) => {
     return APIClient<Product>(
         `${API_URL}/api/products?populate=*&[filters][categories][slug][$eq]=${slug}&pagination[page]=1&pagination[pageSize]=${maxResult}`,
+        HTTP_METHOD.GET
+    )
+}
+
+export const fetchProductEqual = (slug: string) => {
+    return APIClient<Product>(
+        `${API_URL}/api/products?populate=*&filters[slug][$eq]=${slug}`,
+        HTTP_METHOD.GET
+    )
+}
+
+export const fetchProductNotEqual = (slug: string) => {
+    return APIClient<Product>(
+        `${API_URL}/api/products?populate=*&filters[slug][$ne]=${slug}`,
         HTTP_METHOD.GET
     )
 }

@@ -1,3 +1,5 @@
+import { CategoryData } from "./categories";
+
 export type Product = {
     data: ProductData[];
     meta: Meta;
@@ -9,6 +11,7 @@ export type ProductData = {
 }
 
 export type Attributes = {
+    categories: CategoryData
     name?: string;
     subtitle?: string;
     price?: number;

@@ -1,5 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
-import useSWR from "swr";
+import React, { useEffect,useState } from "react";
 import { useRouter } from "next/router";
 import { CategoryData } from "types/categories";
 import { Product } from "types/product";
@@ -80,7 +79,7 @@ export default function Category({ category, products, slug }: IProp) {
   return (
     <div className="w-full md:py-10 relative">
       <Wrapper>
-        <BreardCumb props={category?.data[0]?.attributes?.name} />
+        <BreardCumb cateName={category} />
         <div className="text-center max-w-[800px] mx-auto mt-8 md:mt-0">
           <div className="text-[28px] md:text-[34px] mb-5 font-semibold leading-tight">
             {category?.data?.[0]?.attributes?.name}
@@ -115,7 +114,7 @@ export default function Category({ category, products, slug }: IProp) {
         </div>
         {
           isLoading && (
-            <div className="absolute top-0 left-0 w-full h-full bg-white/[0.5] flex flex-col gap-5 justify-center items-center">
+            <div className="logo-custom absolute top-0 left-0 w-full h-full bg-white/[0.5] flex flex-col gap-5 justify-center items-center">
               <img src="/logo.svg" width={150} />
               <span className="text-2xl font-medium">Loading...</span>
             </div>
