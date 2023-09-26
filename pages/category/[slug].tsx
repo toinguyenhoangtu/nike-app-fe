@@ -1,4 +1,4 @@
-import React, { useEffect,useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { CategoryData } from "types/categories";
 import { Product } from "types/product";
@@ -10,6 +10,7 @@ import {
   useProductFilter,
   useProductFilterPage,
 } from "@services/product/product";
+import LayoutTransition from "@components/LayoutTransition/LayoutTransition";
 
 const maxResult = 3;
 type IProp = {
@@ -77,50 +78,56 @@ export default function Category({ category, products, slug }: IProp) {
   if (!response || response.meta.pagination == undefined) return null;
 
   return (
+
     <div className="w-full md:py-10 relative">
       <Wrapper>
         <BreardCumb cateName={category} />
-        <div className="text-center max-w-[800px] mx-auto mt-8 md:mt-0">
-          <div className="text-[28px] md:text-[34px] mb-5 font-semibold leading-tight">
-            {category?.data?.[0]?.attributes?.name}
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-14 px-5 md:px-0">
-            {response?.data.map((p) => (
-              <ProductCart key={p.id} {...p} />
-            ))}
-          </div>
-          {response?.meta?.pagination?.total > maxResult && (
-            <div className="flex gap-3 items-center justify-center my-16 md:my-0">
-              <button
-                className="rounded py-2 px-4 bg-black text-white disabled:bg-gray-200 disabled:text-gray-500"
-                disabled={pageIndex === 1}
-                onClick={() => setPageIndex(pageIndex - 1)}
-              >
-                Previous
-              </button>
-              <span className="font-bold">
-                {`${pageIndex} of ${response && response.meta.pagination.pageCount
-                  }`}
-              </span>
-              <button
-                className="rounded py-2 px-4 bg-black text-white disabled:bg-gray-200 disabled:text-gray-500"
-                disabled={pageIndex === response.meta.pagination.pageCount}
-                onClick={() => setPageIndex(pageIndex + 1)}
-              >
-                Next
-              </button>
+        <LayoutTransition>
+          <div className="text-center max-w-[800px] mx-auto mt-8 md:mt-0">
+            <div className="text-[28px] md:text-[34px] mb-5 font-semibold leading-tight">
+              {category?.data?.[0]?.attributes?.name}
             </div>
-          )}
-        </div>
-        {
-          isLoading && (
-            <div className="logo-custom absolute top-0 left-0 w-full h-full bg-white/[0.5] flex flex-col gap-5 justify-center items-center">
-              <img src="/logo.svg" width={150} />
-              <span className="text-2xl font-medium">Loading...</span>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-14 px-5 md:px-0">
+              {response?.data.map((p) => (
+                <ProductCart key={p.id} {...p} />
+              ))}
             </div>
-          )
-        }
+            {response?.meta?.pagination?.total > maxResult && (
+              <div className="flex gap-3 items-center justify-center my-16 md:my-0">
+                <button
+                  className="rounded py-2 px-4 bg-black text-white disabled:bg-gray-200 disabled:text-gray-500"
+                  disabled={pageIndex === 1}
+                  onClick={() => setPageIndex(pageIndex - 1)}
+                >
+                  Previous
+                </button>
+                <span className="font-bold">
+                  {`${pageIndex} of ${response && response.meta.pagination.pageCount
+                    }`}
+                </span>
+                <button
+                  className="rounded py-2 px-4 bg-black text-white disabled:bg-gray-200 disabled:text-gray-500"
+                  disabled={pageIndex === response.meta.pagination.pageCount}
+                  onClick={() => setPageIndex(pageIndex + 1)}
+                >
+                  Next
+                </button>
+              </div>
+            )}
+          </div>
+          {
+            isLoading && (
+              <div className="logo-custom absolute top-0 left-0 w-full h-full bg-white/[0.5] flex flex-col gap-5 justify-center items-center">
+                <img src="/logo.svg" width={150} />
+                <span className="text-2xl font-medium">Loading...</span>
+              </div>
+            )
+          }
+        </LayoutTransition>
       </Wrapper>
+
     </div>
+
+
   );
 }

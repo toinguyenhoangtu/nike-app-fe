@@ -12,7 +12,7 @@ export const getAllProduct = async () => {
     )
 }
 
-export const useProductFilter = (slug: string, pageIndex?: number, maxResult?: number, option?: any) => {
+export const useProductFilter =  (slug: string, pageIndex?: number, maxResult?: number, option?: any) => {
     const { data: response, error, isLoading } = useSWR<Product>(
         `${API_URL}/api/products?populate=*&[filters][categories][slug][$eq]=${slug}&pagination[page]=${pageIndex}&pagination[pageSize]=${maxResult}`,
         APIClient,

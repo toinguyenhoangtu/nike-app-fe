@@ -4,10 +4,17 @@ import { Provider } from 'react-redux'
 import { ReactNode } from 'react'
 import Head from "next/head"
 import Layout from "@components/Layout/Layout"
+import NextNProgress from 'nextjs-progressbar';
 import { store } from 'redux/store'
 export default function App({ Component, pageProps }: AppProps): ReactNode {
   return (
     <>
+      <NextNProgress
+        color="#124"
+        startPosition={0.3}
+        height={3}
+        options={{ easing: 'ease-in-out', speed: 400 }}
+        />
       <Head>
         <title>Online Shoe Store | Tu Dev</title>
         <meta

@@ -75,6 +75,30 @@
 .productCarousel .control-arrow {
     display: none;
 }
+.greeting {
+    font-size: 2rem;
+    div {
+      margin: 20vh 0;
+      &:before {
+        content: "Hello ";
+      }
+    }
+  }
+  
+  .io-box {
+    background: white;
+    height: 10vh;
+  }
+  
+  .progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgb(19, 85, 208);
+    width: 100%;
+    height: 6px;
+    transform-origin: 0 0;
+  }
 @media screen and (max-width: 767px) {
     .productCarousel.carousel-root {
         flex-direction: column;
