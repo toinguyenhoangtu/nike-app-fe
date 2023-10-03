@@ -4,7 +4,7 @@ import { Product } from 'types/product'
 import Image from "next/image";
 
 type IProp = {
-    data?: Product;
+    data: Product;
 };
 const ProductDetailsCarousel = ({ data }: IProp) => {
     const image = data?.data[0]?.attributes.images;
@@ -25,7 +25,9 @@ const ProductDetailsCarousel = ({ data }: IProp) => {
                         <div key={index}>
                             <img
                                 src={image?.attributes?.url || ''}
-                                alt={image?.attributes?.name || ''} />
+                                alt={image?.attributes?.name || ''}
+                                loading="lazy"
+                            />
                         </div>
                     ))
                 }

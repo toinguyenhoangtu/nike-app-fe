@@ -6,6 +6,11 @@ import { filterCategory, getAllCategories } from "@services/category/category";
 import Wrapper from "@components/Wrapper/Wrapper";
 import BreardCumb from "@components/BreardCumb/BreardCumb";
 import ProductCart from "@components/ProductCart/ProductCart";
+import type {
+  GetStaticPaths,
+  GetStaticProps,
+  GetStaticPropsContext
+} from 'next'
 import {
   useProductFilter,
   useProductFilterPage,
@@ -18,16 +23,21 @@ type IProp = {
   products: Product;
   slug: string;
 };
-export async function getStaticProps({ params: { slug } }: any) {
-  try {
-    const category = await filterCategory(slug);
 
-    const products = await useProductFilterPage(slug, maxResult);
+export const getStaticProps: GetStaticProps = async (context: GetStaticPropsContext) => {
+  try {
+    const { params } = context;
+    if (!params) {
+      throw new Error('Params are undefined');
+    }
+    const { slug } = params;
+    const category = await filterCategory(slug as string); // Assuming filterCategory expects a string
+    const products = await useProductFilterPage(slug as string, maxResult); // Assuming useProductFilterPage expects a string and a number
     return {
       props: {
         category,
         products,
-        slug,
+        slug: slug as string,
       },
       revalidate: 60 * 10,
     };
@@ -40,26 +50,28 @@ export async function getStaticProps({ params: { slug } }: any) {
   }
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   try {
-    const categories = await getAllCategories(); // A hypothetical function to fetch all categories
+    const categories = await getAllCategories(); // Assuming this function exists
     const paths = categories?.data?.map((c) => ({
       params: {
-        slug: c.attributes?.slug,
+        slug: c.attributes?.slug || "", // Assuming slug is a string
       },
     }));
+
     return {
-      paths,
+      paths: paths || [], // Make sure to handle the case when paths is undefined
       fallback: false,
     };
   } catch (error) {
     return {
-      props: {
-        notFound: true,
-      },
+      paths: [], // Handle error case by returning an empty array
+      fallback: false,
     };
   }
-}
+};
+
+
 export default function Category({ category, products, slug }: IProp) {
   const [pageIndex, setPageIndex] = useState<number>(1);
   const { query } = useRouter();

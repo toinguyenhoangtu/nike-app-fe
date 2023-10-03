@@ -23,7 +23,7 @@ export type Product = {
 
 export type ProductData = {
   id: number;
-  attributes?: Attributes;
+  attributes: Attributes;
 }
 
 export type Attributes = {

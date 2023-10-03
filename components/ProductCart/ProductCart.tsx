@@ -1,5 +1,4 @@
 import { getDiscountedPricePercentage } from '@helpers/promotion'
-import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { ProductData } from 'types/product'
@@ -12,11 +11,12 @@ const ProductCart = (props: ProductData) => {
                 className='transform overflow-hidden bg-white duration-200 hover:scale-105 cursor-pointer shadow-md rounded-lg'
                 href={`/product/${attributes?.slug}`}
             >
-                <Image
+                <img
                     className='w-full'
                     src={attributes?.thumbnail?.data?.attributes?.url || ''}
                     width={500}
                     height={500}
+                    loading='lazy'
                     alt={attributes?.name || ''}
                 />
                 <div className='p-2 text-black/[0.9]'>
