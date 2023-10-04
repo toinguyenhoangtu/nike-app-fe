@@ -1,0 +1,91 @@
+// stylelint-disable declaration-no-important
+%pesudo {
+  content: "";
+  position: absolute;
+}
+$index: (1000, 2000, 3000, 9999, 99999);
+// Common values
+@each $position in $positions {
+  .position-#{$position} {
+    position: $position;
+  }
+}
+
+// Shorthand
+.fixed-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: $zindex-fixed;
+}
+
+.fixed-bottom {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: $zindex-fixed;
+}
+
+.sticky-bottom {
+  @supports (position: sticky) {
+    position: sticky;
+    bottom: 0;
+    z-index: $zindex-sticky;
+  }
+}
+.sticky-top {
+  @supports (position: sticky) {
+    position: sticky;
+    top: 0;
+    z-index: $zindex-sticky;
+  }
+}
+
+.absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+// .z-index-1000{
+//   z-index: 1000;
+// }
+// .z-index-2000{
+//   z-index: 2000;
+// }
+.z-index-3000 {
+  z-index: 3000;
+}
+.before:before,
+.after:after {
+  @extend %pesudo;
+}
+.width-auto {
+  width: auto;
+}
+.top-0 {
+  top: 0;
+}
+.bottom-0 {
+  bottom: 0;
+}
+.left-0 {
+  left: 0;
+}
+.right-0 {
+  right: 0;
+}
+.top-unset {
+  top: unset;
+}
+.bottom-unset {
+  bottom: unset;
+}
+.left-unset {
+  left: unset;
+}
+.right-unset {
+  right: unset;
+}

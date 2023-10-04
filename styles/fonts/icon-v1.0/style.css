@@ -1,0 +1,772 @@
+@font-face {
+  font-family: "icomoon";
+  src: url("fonts/icomoon.eot?cvyflf");
+  src: url("fonts/icomoon.eot?cvyflf#iefix") format("embedded-opentype"),
+    url("fonts/icomoon.ttf?cvyflf") format("truetype"),
+    url("fonts/icomoon.woff?cvyflf") format("woff"),
+    url("fonts/icomoon.svg?cvyflf#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "icomoon" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-ic-home:before {
+  content: "\e900";
+  color: #718198;
+}
+.icon-ic-hotsale:before {
+  content: "\e901";
+  color: #718198;
+}
+.icon-ic-new:before {
+  content: "\e902";
+  color: #718198;
+}
+.icon-ic-promo:before {
+  content: "\e903";
+  color: #718198;
+}
+.icon-ic-calendar:before {
+  content: "\e904";
+  color: #718198;
+}
+.icon-ic-eye:before {
+  content: "\e905";
+  color: #718198;
+}
+.icon-ic-cart:before {
+  content: "\e906";
+  color: #718198;
+}
+.icon-ic-cart-2:before {
+  content: "\e907";
+  color: #718198;
+}
+.icon-ic-cart-refresh:before {
+  content: "\e908";
+  color: #718198;
+}
+.icon-ic-tag:before {
+  content: "\e909";
+  color: #718198;
+}
+.icon-ic-tags:before {
+  content: "\e90a";
+  color: #718198;
+}
+.icon-ic-gift:before {
+  content: "\e90b";
+  color: #718198;
+}
+.icon-ic-local-shipping:before {
+  content: "\e90c";
+  color: #718198;
+}
+.icon-ic-local-shipping-2:before {
+  content: "\e90d";
+  color: #718198;
+}
+.icon-ic-guarantee:before {
+  content: "\e90e";
+  color: #718198;
+}
+.icon-ic-flash:before {
+  content: "\e90f";
+  color: #718198;
+}
+.icon-ic-lightning:before {
+  content: "\e910";
+  color: #718198;
+}
+.icon-ic-location:before {
+  content: "\e911";
+  color: #718198;
+}
+.icon-ic-doc:before {
+  content: "\e912";
+  color: #718198;
+}
+.icon-ic-material:before {
+  content: "\e913";
+  color: #718198;
+}
+.icon-ic-layout:before {
+  content: "\e914";
+  color: #718198;
+}
+.icon-ic-menu:before {
+  content: "\e915";
+  color: #718198;
+}
+.icon-ic-th-list:before {
+  content: "\e916";
+  color: #718198;
+}
+.icon-ic-dot:before {
+  content: "\e917";
+  color: #718198;
+}
+.icon-ic-cog:before {
+  content: "\e918";
+  color: #718198;
+}
+.icon-ic-cogs:before {
+  content: "\e919";
+  color: #718198;
+}
+.icon-ic-call:before {
+  content: "\e91a";
+  color: #718198;
+}
+.icon-ic-mail:before {
+  content: "\e91b";
+  color: #718198;
+}
+.icon-ic-chat:before {
+  content: "\e91c";
+  color: #718198;
+}
+.icon-ic-user:before {
+  content: "\e91d";
+  color: #718198;
+}
+.icon-ic-users:before {
+  content: "\e91e";
+  color: #718198;
+}
+.icon-ic-picture:before {
+  content: "\e91f";
+  color: #718198;
+}
+.icon-ic-photo:before {
+  content: "\e920";
+  color: #718198;
+}
+.icon-ic-box:before {
+  content: "\e921";
+  color: #718198;
+}
+.icon-ic-bookmark:before {
+  content: "\e922";
+  color: #718198;
+}
+.icon-ic-call-center:before {
+  content: "\e923";
+  color: #718198;
+}
+.icon-ic-store-pharmacy:before {
+  content: "\e924";
+  color: #718198;
+}
+.icon-ic-trending:before {
+  content: "\e925";
+  color: #718198;
+}
+.icon-ic-muscle:before {
+  content: "\e926";
+  color: #718198;
+}
+.icon-ic-camera-:before {
+  content: "\e927";
+  color: #718198;
+}
+.icon-ic-blood .path1:before {
+  content: "\e928";
+  color: rgb(113, 129, 152);
+}
+.icon-ic-blood .path2:before {
+  content: "\e929";
+  margin-left: -0.7138671875em;
+  color: rgb(255, 255, 255);
+}
+.icon-ic-tooth:before {
+  content: "\e92a";
+  color: #718198;
+}
+.icon-ic-dentist .path1:before {
+  content: "\e92b";
+  color: rgb(113, 129, 152);
+}
+.icon-ic-dentist .path2:before {
+  content: "\e92c";
+  margin-left: -1.0712890625em;
+  color: rgb(255, 255, 255);
+}
+.icon-ic-bone:before {
+  content: "\e92d";
+  color: #718198;
+}
+.icon-ic-brain:before {
+  content: "\e92e";
+  color: #718198;
+}
+.icon-ic-lung:before {
+  content: "\e92f";
+  color: #718198;
+}
+.icon-ic-kidney:before {
+  content: "\e930";
+  color: #718198;
+}
+.icon-ic-liver:before {
+  content: "\e931";
+  color: #718198;
+}
+.icon-ic-stomach:before {
+  content: "\e932";
+  color: #718198;
+}
+.icon-ic-uterus:before {
+  content: "\e933";
+  color: #718198;
+}
+.icon-ic-gender:before {
+  content: "\e934";
+  color: #718198;
+}
+.icon-ic-gender-female:before {
+  content: "\e935";
+  color: #718198;
+}
+.icon-ic-gender-male:before {
+  content: "\e936";
+  color: #718198;
+}
+.icon-ic-heart:before {
+  content: "\e937";
+  color: #718198;
+}
+.icon-ic-heart-beat:before {
+  content: "\e938";
+  color: #718198;
+}
+.icon-ic-nose:before {
+  content: "\e939";
+  color: #718198;
+}
+.icon-ic-ear:before {
+  content: "\e93a";
+  color: #718198;
+}
+.icon-ic-mouth:before {
+  content: "\e93b";
+  color: #718198;
+}
+.icon-ic-foot:before {
+  content: "\e93c";
+  color: #718198;
+}
+.icon-ic-hand:before {
+  content: "\e93d";
+  color: #718198;
+}
+.icon-ic-scale:before {
+  content: "\e93e";
+  color: #718198;
+}
+.icon-ic-report:before {
+  content: "\e93f";
+  color: #718198;
+}
+.icon-ic-stetoscope:before {
+  content: "\e940";
+  color: #718198;
+}
+.icon-ic-plaster:before {
+  content: "\e941";
+  color: #718198;
+}
+.icon-ic-needle:before {
+  content: "\e942";
+  color: #718198;
+}
+.icon-ic-baby:before {
+  content: "\e943";
+  color: #718198;
+}
+.icon-ic-drug:before {
+  content: "\e944";
+  color: #718198;
+}
+.icon-ic-disease-head .path1:before {
+  content: "\e945";
+  color: rgb(113, 129, 152);
+}
+.icon-ic-disease-head .path2:before {
+  content: "\e946";
+  margin-left: -0.857421875em;
+  color: rgb(255, 255, 255);
+}
+.icon-ic-disease-ent .path1:before {
+  content: "\e947";
+  color: rgb(113, 129, 152);
+}
+.icon-ic-disease-ent .path2:before {
+  content: "\e948";
+  margin-left: -0.857421875em;
+  color: rgb(255, 255, 255);
+}
+.icon-ic-disease-skin .path1:before {
+  content: "\e949";
+  color: rgb(113, 129, 152);
+}
+.icon-ic-disease-skin .path2:before {
+  content: "\e94a";
+  margin-left: -0.857421875em;
+  color: rgb(255, 255, 255);
+}
+.icon-ic-disease-skin .path3:before {
+  content: "\e94b";
+  margin-left: -0.857421875em;
+  color: rgb(255, 255, 255);
+}
+.icon-ic-disease-skin .path4:before {
+  content: "\e94c";
+  margin-left: -0.857421875em;
+  color: rgb(255, 255, 255);
+}
+.icon-ic-disease-skin .path5:before {
+  content: "\e94d";
+  margin-left: -0.857421875em;
+  color: rgb(255, 255, 255);
+}
+.icon-ic-disease-skin .path6:before {
+  content: "\e94e";
+  margin-left: -0.857421875em;
+  color: rgb(255, 255, 255);
+}
+.icon-ic-disease-skin .path7:before {
+  content: "\e94f";
+  margin-left: -0.857421875em;
+  color: rgb(255, 255, 255);
+}
+.icon-ic-disease-skin .path8:before {
+  content: "\e950";
+  margin-left: -0.857421875em;
+  color: rgb(255, 255, 255);
+}
+.icon-ic-disease-skin .path9:before {
+  content: "\e951";
+  margin-left: -0.857421875em;
+  color: rgb(255, 255, 255);
+}
+.icon-ic-hospital:before {
+  content: "\e952";
+  color: #718198;
+}
+.icon-ic-target-location:before {
+  content: "\e953";
+  color: #718198;
+}
+.icon-ic-drug-2:before {
+  content: "\e954";
+  color: #718198;
+}
+.icon-ic-clock:before {
+  content: "\e955";
+  color: #718198;
+}
+.icon-ic-health:before {
+  content: "\e956";
+  color: #718198;
+}
+.icon-ic-line-blood:before {
+  content: "\e957";
+  color: #718198;
+}
+.icon-ic-line-tooth:before {
+  content: "\e958";
+  color: #718198;
+}
+.icon-ic-line-dentist:before {
+  content: "\e959";
+  color: #718198;
+}
+.icon-ic-line-bone:before {
+  content: "\e95a";
+  color: #718198;
+}
+.icon-ic-line-brain:before {
+  content: "\e95b";
+  color: #718198;
+}
+.icon-ic-line-lung:before {
+  content: "\e95c";
+  color: #718198;
+}
+.icon-ic-line-kidney:before {
+  content: "\e95d";
+  color: #718198;
+}
+.icon-ic-line-liver:before {
+  content: "\e95e";
+  color: #718198;
+}
+.icon-ic-line-stomach:before {
+  content: "\e95f";
+  color: #718198;
+}
+.icon-ic-line-uterus:before {
+  content: "\e960";
+  color: #718198;
+}
+.icon-ic-line-gender:before {
+  content: "\e961";
+  color: #718198;
+}
+.icon-ic-line-gender-female:before {
+  content: "\e962";
+  color: #718198;
+}
+.icon-ic-line-gender-male:before {
+  content: "\e963";
+  color: #718198;
+}
+.icon-ic-line-heart:before {
+  content: "\e964";
+  color: #718198;
+}
+.icon-ic-line-heart-beat:before {
+  content: "\e965";
+  color: #718198;
+}
+.icon-ic-line-nose:before {
+  content: "\e966";
+  color: #718198;
+}
+.icon-ic-line-ear:before {
+  content: "\e967";
+  color: #718198;
+}
+.icon-ic-line-mouth:before {
+  content: "\e968";
+  color: #718198;
+}
+.icon-ic-line-foot:before {
+  content: "\e969";
+  color: #718198;
+}
+.icon-ic-line-hand:before {
+  content: "\e96a";
+  color: #718198;
+}
+.icon-ic-line-scale:before {
+  content: "\e96b";
+  color: #718198;
+}
+.icon-ic-line-report:before {
+  content: "\e96c";
+  color: #718198;
+}
+.icon-ic-line-stetoscope:before {
+  content: "\e96d";
+  color: #718198;
+}
+.icon-ic-line-plaster:before {
+  content: "\e96e";
+  color: #718198;
+}
+.icon-ic-line-needle:before {
+  content: "\e96f";
+  color: #718198;
+}
+.icon-ic-line-baby:before {
+  content: "\e970";
+  color: #718198;
+}
+.icon-ic-line-drug:before {
+  content: "\e971";
+  color: #718198;
+}
+.icon-ic-line-disease-head:before {
+  content: "\e972";
+  color: #718198;
+}
+.icon-ic-line-disease-ent:before {
+  content: "\e973";
+  color: #718198;
+}
+.icon-ic-line-disease-skin:before {
+  content: "\e974";
+  color: #718198;
+}
+.icon-ic-line-hospital:before {
+  content: "\e975";
+  color: #718198;
+}
+.icon-ic-line-cancer:before {
+  content: "\e976";
+  color: #718198;
+}
+.icon-ic-line-drug-2:before {
+  content: "\e977";
+  color: #718198;
+}
+.icon-ic-line-clock:before {
+  content: "\e978";
+  color: #718198;
+}
+.icon-ic-close-thin:before {
+  content: "\e979";
+  color: #718198;
+}
+.icon-ic-line-like:before {
+  content: "\e97a";
+  color: #718198;
+}
+.icon-ic-like:before {
+  content: "\e97b";
+  color: #718198;
+}
+.icon-ic-reply:before {
+  content: "\e97c";
+  color: #718198;
+}
+.icon-ic-reply-all:before {
+  content: "\e97d";
+  color: #718198;
+}
+.icon-ic-export:before {
+  content: "\e97e";
+  color: #718198;
+}
+.icon-ic-login:before {
+  content: "\e97f";
+  color: #718198;
+}
+.icon-ic-renew:before {
+  content: "\e980";
+  color: #718198;
+}
+.icon-ic-spin:before {
+  content: "\e981";
+  color: #718198;
+}
+.icon-ic-reload:before {
+  content: "\e982";
+  color: #718198;
+}
+.icon-ic-replay:before {
+  content: "\e983";
+  color: #718198;
+}
+.icon-ic-download:before {
+  content: "\e984";
+  color: #718198;
+}
+.icon-ic-upload:before {
+  content: "\e985";
+  color: #718198;
+}
+.icon-ic-send:before {
+  content: "\e986";
+  color: #718198;
+}
+.icon-ic-edit:before {
+  content: "\e987";
+  color: #718198;
+}
+.icon-ic-filter:before {
+  content: "\e988";
+  color: #718198;
+}
+.icon-ic-line-filter:before {
+  content: "\e989";
+  color: #718198;
+}
+.icon-ic-trash:before {
+  content: "\e98a";
+  color: #718198;
+}
+.icon-ic-pause:before {
+  content: "\e98b";
+  color: #718198;
+}
+.icon-ic-play:before {
+  content: "\e98c";
+  color: #718198;
+}
+.icon-ic-search:before {
+  content: "\e98d";
+  color: #718198;
+}
+.icon-ic-zoom-out:before {
+  content: "\e98e";
+  color: #718198;
+}
+.icon-ic-zoom-in:before {
+  content: "\e98f";
+  color: #718198;
+}
+.icon-ic-expand:before {
+  content: "\e990";
+  color: #718198;
+}
+.icon-ic-minimize:before {
+  content: "\e991";
+  color: #718198;
+}
+.icon-ic-angle-left-thin:before {
+  content: "\e992";
+  color: #718198;
+}
+.icon-ic-angle-right-thin:before {
+  content: "\e993";
+  color: #718198;
+}
+.icon-ic-angle-up-thin:before {
+  content: "\e994";
+  color: #718198;
+}
+.icon-ic-angle-down-thin:before {
+  content: "\e995";
+  color: #718198;
+}
+.icon-ic-angle-left:before {
+  content: "\e996";
+  color: #718198;
+}
+.icon-ic-angle-right:before {
+  content: "\e997";
+  color: #718198;
+}
+.icon-ic-angle-up:before {
+  content: "\e998";
+  color: #718198;
+}
+.icon-ic-angle-down:before {
+  content: "\e999";
+  color: #718198;
+}
+.icon-ic-angle-select:before {
+  content: "\e99a";
+  color: #718198;
+}
+.icon-ic-angle-left-double:before {
+  content: "\e99b";
+  color: #718198;
+}
+.icon-ic-angle-right-double:before {
+  content: "\e99c";
+  color: #718198;
+}
+.icon-ic-angle-up-double:before {
+  content: "\e99d";
+  color: #718198;
+}
+.icon-ic-angle-down-double:before {
+  content: "\e99e";
+  color: #718198;
+}
+.icon-ic-arrow-left:before {
+  content: "\e99f";
+  color: #718198;
+}
+.icon-ic-arrow-right:before {
+  content: "\e9a0";
+  color: #718198;
+}
+.icon-ic-arrow-up:before {
+  content: "\e9a1";
+  color: #718198;
+}
+.icon-ic-arrow-down:before {
+  content: "\e9a2";
+  color: #718198;
+}
+.icon-ic-left:before {
+  content: "\e9a3";
+  color: #718198;
+}
+.icon-ic-right:before {
+  content: "\e9a4";
+  color: #718198;
+}
+.icon-ic-up:before {
+  content: "\e9a5";
+  color: #718198;
+}
+.icon-ic-down:before {
+  content: "\e9a6";
+  color: #718198;
+}
+.icon-ic-arrow-select:before {
+  content: "\e9a7";
+  color: #718198;
+}
+.icon-ic-minus:before {
+  content: "\e9a8";
+  color: #718198;
+}
+.icon-ic-plus:before {
+  content: "\e9a9";
+  color: #718198;
+}
+.icon-ic-check:before {
+  content: "\e9aa";
+  color: #718198;
+}
+.icon-ic-cancel:before {
+  content: "\e9ab";
+  color: #718198;
+}
+.icon-ic-help:before {
+  content: "\e9ac";
+  color: #718198;
+}
+.icon-ic-info:before {
+  content: "\e9ad";
+  color: #718198;
+}
+.icon-ic-exclamation:before {
+  content: "\e9ae";
+  color: #718198;
+}
+.icon-ic-quote:before {
+  content: "\e9af";
+  color: #718198;
+}
+.icon-ic-star:before {
+  content: "\e9b0";
+  color: #718198;
+}
+.icon-ic-star-o:before {
+  content: "\e9b1";
+  color: #718198;
+}
+.icon-ic-star-half:before {
+  content: "\e9b2";
+  color: #718198;
+}
+.icon-ic-star-half-o:before {
+  content: "\e9b3";
+  color: #718198;
+}
+.icon-ic-circle-md:before {
+  content: "\e9b5";
+  color: #718198;
+}
+.icon-ic-circle-sm:before {
+  content: "\e9b6";
+  color: #718198;
+}
+.icon-ic-circle-lg:before {
+  content: "\e9b4";
+  color: #718198;
+}

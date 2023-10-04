@@ -1,0 +1,147 @@
+$stroke-default: #c1c8d1;
+.text-field {
+  position: relative;
+  display: inline-flex;
+  width: 100%;
+  min-width: 34.3rem;
+  $this: &;
+  @include breakpoint("lg") {
+    min-width: 0.1rem;
+  }
+  input,
+  textarea {
+    position: relative;
+    display: block;
+    width: 100%;
+    font-family: inherit;
+    padding: 1.6rem 5.6rem 1.6rem 1.6rem;
+    color: $gray-1000;
+    background-color: $white-100;
+    background-clip: padding-box;
+    box-shadow: 0 0 0 1px $stroke-default !important;
+    border: none;
+    transition: all 0.3s;
+    outline: none;
+    appearance: none;
+    // @extend .ui-fs-p-18;
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+    border-radius: 8px;
+    resize: none;
+    &:focus,
+    &:focus-visible {
+      box-shadow: 0 0 0 1px $primary-500;
+    }
+    &:disabled {
+      box-shadow: none;
+      background-color: $gray-100;
+      color: $gray-600;
+      & + .text-field-icons {
+        [class^="fa-"] {
+          color: $gray-500;
+        }
+        .icon-clear {
+          display: none;
+        }
+      }
+      & + .text-field-placeholder + .text-field-icons {
+        [class^="fa-"] {
+          color: $gray-500;
+        }
+        .icon-clear {
+          display: none;
+        }
+      }
+    }
+    &:not(textarea):not(:placeholder-shown) {
+      padding-right: 9.2rem;
+      & + .text-field-placeholder + .text-field-icons {
+        .icon-clear {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+      & + .text-field-icons {
+        .icon-clear {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+  }
+  textarea {
+    padding: 1.6rem;
+  }
+  &.with-label {
+    input,
+    textarea {
+      border-radius: 12px;
+      &:not(:placeholder-shown) {
+        &:not(textarea) {
+          padding-top: 2.8rem;
+          padding-bottom: 0.4rem;
+        }
+        padding-top: 3.2rem;
+        padding-bottom: 2.4rem;
+        & + .text-field-placeholder,
+        & + .ui-alert + .text-field-placeholder {
+          top: 0.4rem;
+          color: $gray-600;
+          font-size: 1.4rem;
+          line-height: 2rem;
+          transform: none;
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+    #{$this}-placeholder {
+      display: block;
+    }
+  }
+  .text-field-placeholder {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &.is-invalid {
+    input,
+    textarea {
+      background-color: $error-200;
+      box-shadow: 0 0 0 1px $error-800;
+    }
+  }
+
+  &-placeholder {
+    @include centerAbsolute("top");
+    left: 1.6rem;
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+    display: none;
+    color: $gray-1000;
+    &::placeholder {
+      color: $gray-600;
+    }
+    &:not(input) {
+      top: 2.8rem;
+    }
+    .placeholder-require {
+      color: $error-800;
+    }
+  }
+  &-icons {
+    position: absolute;
+    right: 1.6rem;
+    cursor: pointer;
+    @include centerAbsolute("top");
+    [class^="fa-"] {
+      font-size: 2.4rem;
+      line-height: 2.4rem;
+      color: $gray-600;
+    }
+    .icon-clear {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+}

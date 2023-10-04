@@ -1,0 +1,260 @@
+//
+// fonts system
+//
+
+// === font icon ===
+@import "fonts/_icon-variables";
+
+// === font family ===
+// $font-family: "Roboto";
+$font-family: "Inter";
+
+// $font-family-path: "../frontend_v3/fonts/Roboto";
+// $font-family-path: "../../fonts/Roboto";
+$font-family-path: "../../fonts/Inter";
+
+//
+// Color system
+//
+
+/** Primary Colors   **/
+$primary-50: #f0fbff;
+$primary-100: #eaeffa;
+$primary-150: #c1d0f6;
+$primary-200: #acc0f3;
+$primary-300: #769dea;
+$primary-400: #306de4;
+$primary-500: #1250dc;
+$primary-600: #0037c1;
+$primary-700: #002c9a;
+$primary-800: #002174;
+$primary-900: #00164d;
+$primary-1000: #000b27;
+
+/** White Colors   **/
+$white-100: #fff;
+$white-200: #fcfcfc;
+
+/** Gray Colors **/
+$gray-100: #f6f7f9;
+$gray-150: #edf0f3;
+$gray-200: #e4e8ed;
+$gray-300: #d9dfe5;
+$gray-400: #c1c8d1;
+$gray-500: #a9b2be;
+$gray-600: #657384;
+$gray-700: #4a4f63;
+$gray-800: #2f364a;
+$gray-900: #20283d;
+$gray-1000: #020b27;
+$gray-880: rgba(47, 54, 74, 0.8);
+
+/** Error Colors **/
+$error-100: #fffbfa;
+$error-200: #fef3f2;
+$error-300: #fee4e2;
+$error-400: #ffcdca;
+$error-500: #fda29b;
+$error-600: #fa7066;
+$error-700: #f04438;
+$error-800: #d92d20;
+$error-900: #b42318;
+$error-1000: #912018;
+
+/** Warning Colors **/
+$warning-100: #fffcf5;
+$warning-200: #fff3e1;
+$warning-300: #fef0c7;
+$warning-400: #fedf89;
+$warning-500: #fec84b;
+$warning-600: #fdb022;
+$warning-700: #f79009;
+$warning-800: #dc6803;
+$warning-900: #b54708;
+$warning-1000: #93370d;
+
+/** Success Colors  **/
+$success-100: #f6fef9;
+$success-200: #defcea;
+$success-300: #d1fadf;
+$success-400: #a6f4c5;
+$success-500: #6ce9a6;
+$success-600: #32d583;
+$success-700: #12b76a;
+$success-800: #039855;
+$success-900: #027a48;
+$success-1000: #05603a;
+
+/** Gradient  **/
+$gradient-blue-1: linear-gradient(315deg, #1250dc 14.64%, #306de4 85.36%);
+$gradient-blue-2: linear-gradient(315deg, #306de4 14.64%, #769dea 85.36%);
+$gradient-blue-3: linear-gradient(315deg, #769dea 14.64%, #acc0f3 85.36%);
+
+$gradient-green-1: linear-gradient(315deg, #039855 14.64%, #12b76a 85.36%);
+$gradient-green-2: linear-gradient(315deg, #039855 14.64%, #12b76a 85.36%);
+
+$gradient-yellow-1: linear-gradient(315deg, #f79009 14.64%, #fdb022 85.36%);
+$gradient-yellow-2: linear-gradient(315deg, #f79009 14.64%, #fdb022 85.36%);
+
+$gradient-red-1: linear-gradient(315deg, #d92d20 14.64%, #f04438 85.36%);
+$gradient-red-2: linear-gradient(315deg, #d92d20 14.64%, #f04438 85.36%);
+
+$black: #000;
+
+/** Layout **/
+$enable-grid-classes: true !default;
+$container-max-widths: (
+  // xl: 1200px,
+  // lg: 992px,
+  // md: 720px,
+  // sm: 540px,
+  xl: 1200px,
+  lg: 1100px,
+  md: 768px,
+  sm: 540px
+) !default;
+
+// Grid breakpoints
+//
+// Define the minimum dimensions at which your layout will change,
+
+$grid-breakpoints: (
+  none: 0,
+  xl: 1400px,
+  lg: 1200px,
+  md: 992px,
+  sm: 768px,
+  xs: 576px,
+) !default;
+
+$grid-breakpoints-mb: (
+  none: 0,
+  lg: 1200px,
+  md: 992px,
+  sm: 768px,
+  xs: 576px,
+  // xxs: 360px
+) !default;
+
+//breakpoints mobile: fonts, spacing...
+$breakpoints-mb: (
+  lg: 1200px,
+  md: 992px,
+  sm: 768px,
+  xs: 576px,
+  xxs: 359px,
+) !default;
+
+//Grid Columns
+$grid-columns: 12 !default; //12 column desktop
+$grid-gutter-width: 24px !default;
+$grid-row-columns: 6 !default; //6 column mobile
+
+//Container padding
+$container-padding-x: ($grid-gutter-width / 2) !default;
+
+// spacing
+$spacing: 4px !default;
+$spacings: 0, 2, 4, 8, 12, 14, 16, 24, 32, 40, 48, 64;
+$spacingsXY: 0, 2, 4, 6, 8, 12, 14, 16, 24;
+
+$spacer: 0, 2, 4, 6, 8, 10, 12, 14, 16, 20, 24, 32, 40, 48, 64;
+$spacer-mb: 0, 2, 4, 6, 8, 10, 12, 14, 16, 20, 24, 32;
+
+/**  BG Overlay  **/
+$overlay-primary: $gray-100;
+
+$background: (
+  "white": $white-200,
+  "blue": $primary-150,
+  "gray": $gray-150,
+);
+
+/** Text **/
+$text: (
+  "primary": $gray-1000,
+  "secondary": $gray-700,
+  "Tertiary": $gray-600,
+  "white": $white-200,
+  "placeholder": $gray-600,
+  "disable": $gray-600,
+  "grey": $gray-500,
+  "hint-white": $gray-300,
+  "focus": $primary-500,
+  "link": $primary-500,
+);
+
+/** Stroke **/
+$stroke: (
+  "default": $gray-400,
+  "disable": $gray-200,
+  "focus": $primary-500,
+);
+
+/** Typography **/
+$size-base: 16px !default; // --> font-size base 1rem = 16px
+$weight-base: 400 !default;
+
+$font-size: (
+  12: 1,
+  13: 1,
+  14: 1.25,
+  16: 1.5,
+  18: 1.5,
+  20: 1.75,
+  24: 2.25,
+  28: 2.5,
+  36: 3.25,
+  40: 3.75,
+);
+
+$font-weight: (
+  "medium": 500,
+  "semiBold": 600,
+  "bold": 700,
+);
+
+$title: (
+  "lg": (
+    fontSize: 40,
+    lineHeight: 3.75,
+  ),
+  "md": (
+    fontSize: 36,
+    lineHeight: 3.25,
+  ),
+  "sm": (
+    fontSize: 28,
+    lineHeight: 2.5,
+  ),
+);
+
+$heading: (
+  "lg": (
+    fontSize: 24,
+    lineHeight: 2.25,
+  ),
+  "md": (
+    fontSize: 20,
+    lineHeight: 1.75,
+  ),
+  "sm": (
+    fontSize: 18,
+    lineHeight: 1.5,
+  ),
+);
+
+// transition
+$transition-duration-xs: 0.3s;
+$transition-duration-sm: 0.6s;
+$transition-duration-md: 0.9s;
+$transiton-timing: ease-in-out;
+$transition: all $transition-duration-xs $transiton-timing !default;
+$transition-sm: all $transition-duration-sm $transiton-timing !default;
+$transition-md: all $transition-duration-md $transiton-timing !default;
+
+// Buttons
+$btn-transition: color $transition-duration-xs ease-in-out,
+  background-color $transition-duration-xs ease-in-out,
+  border-color $transition-duration-xs ease-in-out,
+  box-shadow $transition-duration-xs ease-in-out !default;

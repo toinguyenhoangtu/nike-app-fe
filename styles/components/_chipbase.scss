@@ -1,0 +1,97 @@
+$border-width: 0.1rem;
+$radius: 3.2rem;
+$border-color: $gray-500 !default;
+$bg: $white-100 !default;
+$color-default: $gray-700 !default;
+$spacer-defaul: 0.5rem 1.6rem !default;
+
+$bg-active: linear-gradient(315deg, $primary-500 14.64%, $primary-400 85.36%);
+$color-active: $primary-500;
+$border-active: $primary-500;
+$spacer-active: 0.5rem 2.4rem 0.5rem 1.6rem !default;
+.chipsbase-group {
+  margin-top: 1.6rem;
+  .chipsbase {
+    &:not(:last-child) {
+      margin-right: 0.8rem;
+    }
+  }
+  @include breakpoint("md") {
+    overflow-y: hidden;
+    white-space: nowrap;
+  }
+}
+.chipsbase {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background: $bg;
+  border: $border-width solid $border-color;
+  border-radius: $radius;
+  color: $color-default;
+  padding: $spacer-defaul;
+
+  cursor: pointer;
+  position: relative;
+
+  // transition: $transition;
+  &::before {
+    font-family: $font-icon-family;
+    content: "\e919";
+    position: absolute;
+    top: 0.2rem;
+    right: 0.4rem;
+    color: $white-100;
+    font-size: 1rem;
+    opacity: 0;
+  }
+  &.lg {
+    .label {
+      @include font-ppc(1.6rem, 500, 2.4rem);
+    }
+  }
+
+  &.sm {
+    .label {
+      @include font-ppc(1.4rem, 500, 2rem);
+    }
+  }
+
+  &.active {
+    border-color: $border-active;
+    padding: $spacer-active;
+    background: linear-gradient(to top right, transparent 50%, $primary-500 0)
+        top right/2.6rem 2.6rem no-repeat,
+      $white-100;
+    &:before {
+      opacity: 1;
+    }
+    .label {
+      color: $color-active;
+    }
+  }
+  @include breakpoint("md") {
+    &.md-sm {
+      .label {
+        @include font-ppc(1.4rem, 500, 2rem);
+      }
+    }
+  }
+}
+.chipsbase-custom {
+  border-color: $gray-500;
+  &.active {
+    border-color: $border-active;
+    padding: $spacer-active;
+    background: linear-gradient(to top right, transparent 50%, $primary-500 0)
+        top right/2.6rem 2.6rem no-repeat,
+      $white-100;
+    &:before {
+      opacity: 1;
+    }
+    .label {
+      color: $color-active;
+    }
+  }
+}

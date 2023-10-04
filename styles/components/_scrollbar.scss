@@ -1,0 +1,55 @@
+$scrollbar-width-sm: 0.4rem;
+$scrollbar-width: 0.8rem;
+// scrollbar
+@mixin ui-scrollbar($size) {
+  & {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  &:-webkit-scrollbar-track {
+    border-radius: 10rem;
+    background-color: #d9dfe5;
+  }
+
+  &::-webkit-scrollbar {
+    width: #{$size};
+    border-radius: 10rem;
+    background-color: #d9dfe5;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10rem;
+    background-color: #657384;
+  }
+}
+.ui-scrollbar {
+  @include ui-scrollbar($scrollbar-width);
+  &-sm {
+    @include ui-scrollbar($scrollbar-width-sm);
+  }
+}
+@mixin ui-scrollbar-noline($size) {
+  & {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  &:-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar {
+    width: #{$size};
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 100px;
+    background-color: #657384;
+  }
+}
+.ui-scrollbar-noline {
+  @include ui-scrollbar-noline($scrollbar-width);
+  &-sm {
+    @include ui-scrollbar-noline($scrollbar-width-sm);
+  }
+}

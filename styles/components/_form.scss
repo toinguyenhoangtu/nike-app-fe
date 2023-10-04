@@ -1,0 +1,244 @@
+@import "../abstracts/variables";
+
+.ui-checkbox {
+  position: relative;
+  input[type="checkbox"] {
+    opacity: 0;
+    position: absolute;
+  }
+  .ui-check-label {
+    position: relative;
+    cursor: pointer;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    letter-spacing: 0.005em;
+    color: $gray-1000;
+    padding-left: 2.9rem;
+    &:before {
+      position: absolute;
+      top: 2px;
+      left: 0;
+      border: 0.15rem solid #657384;
+      border-radius: 0.4rem;
+      background: $white-100;
+      color: $white-100;
+      content: "\e919";
+      font-family: "icomoon";
+      height: 1.8rem;
+      line-height: 1.5rem;
+      width: 1.8rem;
+      font-size: 1.3rem;
+      text-align: center;
+    }
+    &:after {
+      display: none;
+    }
+  }
+  .ui-check-input {
+    &:focus:not(:checked) ~ .ui-check-label::before {
+      border-color: #657384;
+    }
+  }
+
+  input[type="checkbox"] {
+    &:checked {
+      & + label {
+        &:before {
+          border-color: $primary-500;
+          color: $white-100;
+          background: linear-gradient(315deg, #1250dc 0%, #306de4 100%);
+        }
+      }
+    }
+    &:disabled {
+      & + label {
+        color: #657384;
+        cursor: default;
+        &:before {
+          border-color: $gray-500;
+          color: $white-100;
+          background: $white-100;
+        }
+      }
+      &:checked {
+        & + label {
+          &:before {
+            background: $gray-500;
+          }
+        }
+      }
+    }
+  }
+  @include breakpoint("md") {
+    .ui-check-label {
+      font-size: 1.4rem;
+      line-height: 2rem;
+    }
+  }
+}
+.search-bar {
+  display: flex;
+  align-items: center;
+  button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10rem;
+
+    position: absolute;
+    right: 0;
+  }
+  .btn-search {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: $primary-100;
+  }
+  .btn-clear {
+    width: 2.4rem;
+    height: 2.4rem;
+    background-color: $gray-600;
+    > * {
+      @include font-ppc(1.2rem, 600, 1);
+      color: $white-100;
+    }
+  }
+}
+.f-form {
+  button {
+    background-color: transparent;
+    width: auto;
+    height: auto;
+    border: none;
+    outline: none;
+  }
+  input {
+    border: none;
+    appearance: none;
+    box-shadow: none;
+    background-color: transparent;
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .f-input {
+    position: relative;
+    background-color: $white-100;
+    border-radius: 3.5rem;
+    font-weight: 400;
+    letter-spacing: 0.005em;
+    color: $gray-1000;
+    width: 100%;
+    &::placeholder {
+      color: $gray-600;
+    }
+    &.gray-3 {
+      background-color: $gray-300;
+    }
+    &.gray-150 {
+      background-color: $gray-150;
+    }
+    &.lg {
+      height: 5.2rem;
+      @include font-ppc(1.6rem, 400, 2.4rem);
+      padding: 1.4rem 9.4rem 1.4rem 1.7rem;
+    }
+    &.md {
+      height: 4.4rem;
+      padding: 1.2rem 8rem 1.2rem 1.7rem;
+      @include font-ppc(1.4rem, 400, 2rem);
+    }
+  }
+  .f-input.lg {
+    + .btn-search {
+      width: 4rem;
+      height: 4rem;
+    }
+  }
+  .f-input.md {
+    + .btn-search {
+      width: 3.6rem;
+      height: 3.6rem;
+    }
+  }
+}
+.ui-radio {
+  position: relative;
+  input[type="radio"] {
+    opacity: 0;
+    position: absolute;
+  }
+  .ui-radio-label {
+    cursor: pointer;
+    padding-left: 30px;
+    position: relative;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    letter-spacing: 0.005em;
+    color: $gray-1000;
+    &:before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: "";
+      border: 0.15rem solid #657384;
+      border-radius: 50%;
+      background: $white-100;
+      color: $white-100;
+      height: 2rem;
+      line-height: 2rem;
+      width: 2rem;
+      font-size: 4.8rem;
+      text-align: center;
+    }
+    &:after {
+      content: "";
+      color: $white-100;
+      position: absolute;
+      left: 0.5rem;
+      top: 0.5rem;
+      width: 1rem;
+      height: 1rem;
+      line-height: 2rem;
+      background-color: $white-100;
+      border-radius: 50%;
+    }
+  }
+  input[type="radio"] {
+    &:checked {
+      & + label {
+        &:before {
+          border-color: $primary-500;
+          background: linear-gradient(315deg, #1250dc 0%, #306de4 100%);
+          color: $white-100;
+        }
+      }
+    }
+    &:disabled {
+      & + label {
+        color: #657384;
+        cursor: default;
+        &:before {
+          border-color: $gray-500;
+          color: $white-100;
+          background: $white-100;
+        }
+      }
+      &:checked {
+        & + label {
+          &:before {
+            background: $gray-500;
+          }
+        }
+      }
+    }
+  }
+  @include breakpoint("md") {
+    .ui-radio-label {
+      font-size: 1.4rem;
+      line-height: 2rem;
+      padding-left: 2.4rem;
+    }
+  }
+}

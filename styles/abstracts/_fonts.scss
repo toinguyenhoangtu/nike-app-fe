@@ -1,0 +1,39 @@
+/** Generate font-size class utility **/
+@each $key, $value in $font-size {
+  $size-convert: #{$key / 10}rem;
+  $height-convert: #{($value * 16) / 10}rem;
+  .ui-fs-p-#{$key} {
+    font-size: $size-convert;
+    line-height: $height-convert;
+    font-weight: $weight-base;
+  }
+}
+
+/** Generate font-weight class utility **/
+@each $key, $value in $font-weight {
+  .w-#{$key} {
+    font-weight: $value;
+  }
+}
+
+/** Generate title class utility **/
+@each $key, $value in $title {
+  $size: #{map-get($value, "fontSize") / 10}rem;
+  $height: #{map-get($value, "lineHeight")}rem;
+  .title-#{$key} {
+    font-size: $size;
+    line-height: $height;
+  }
+}
+
+/** Generate heading class utility **/
+@each $key, $value in $heading {
+  $size: #{map-get($value, "fontSize") / 10}rem;
+  $height: #{map-get($value, "lineHeight")}rem;
+  .title-#{$key} {
+    font-size: $size;
+    line-height: $height;
+  }
+}
+
+@import "../abstracts/fonts/_fonts-icon";

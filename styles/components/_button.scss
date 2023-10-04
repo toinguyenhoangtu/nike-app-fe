@@ -1,0 +1,307 @@
+$border-radius: 4.2rem !default;
+$padding-default: 0 2.4rem !default;
+.circle {
+  border-radius: 50rem !important;
+}
+@include breakpoint("md") {
+  .circle-mb {
+    border-radius: 62.5rem;
+  }
+}
+.overflow-hidden {
+  overflow: hidden;
+}
+$button-size: (
+  "lg": (
+    height: 5.6rem,
+    padding: "0 1.5rem",
+    fontSize: 2rem,
+    lineHeight: 2.8rem,
+  ),
+  "md": (
+    height: 4.8rem,
+    padding: "0 1.5rem",
+    fontSize: 1.6rem,
+    lineHeight: 2.4rem,
+  ),
+  "sm": (
+    height: 4rem,
+    padding: "0 1rem",
+    fontSize: 1.4rem,
+    lineHeight: 2rem,
+  ),
+  "xs": (
+    height: 3.6rem,
+    padding: "0 0.8rem",
+    fontSize: 1.4rem,
+    lineHeight: 2rem,
+  ),
+  "xxs": (
+    height: 2.8rem,
+    padding: "0 0.8rem",
+    fontSize: 1.4rem,
+    lineHeight: 2rem,
+  ),
+);
+
+$btn-font-size: (
+  "lg": 2rem,
+  "md": 1.6rem,
+  "sm": 1.4rem,
+  "xs": 1.4rem,
+  "xxs": 1.4rem,
+);
+
+$theme-colors: (
+  "primary": (
+    default: $gradient-blue-1,
+    pressed: $primary-600,
+  ),
+  "secondary": (
+    default: $primary-100,
+    pressed: $primary-150,
+  ),
+  "text": (
+    default: $white-100,
+    pressed: $primary-100,
+  ),
+);
+
+$font-colors: (
+  "primary": (
+    default: $white-100,
+    pressed: $white-100,
+  ),
+  "secondary": (
+    default: $primary-500,
+    pressed: $primary-500,
+  ),
+  "text": (
+    default: $primary-500,
+    pressed: $primary-500,
+  ),
+  "icon": (
+    default: $white-100,
+    pressed: $primary-500,
+  ),
+);
+
+$btn-icon-props: (
+  "lg": (
+    margin-icon: 0.8rem,
+    font-size: 2rem,
+  ),
+  "md": (
+    margin-icon: 0.8rem,
+    font-size: 2rem,
+  ),
+  "sm": (
+    margin-icon: 1rem,
+    font-size: 2rem,
+  ),
+  "xs": (
+    margin-icon: 1rem,
+    font-size: 2rem,
+  ),
+);
+
+.ui-btn {
+  @include inlineFlexCenter();
+  flex-direction: column;
+
+  user-select: none;
+  font-family: inherit;
+  border: none;
+  outline: none;
+
+  border-radius: $border-radius;
+  transition: $btn-transition;
+  padding: $padding-default;
+
+  cursor: pointer;
+}
+
+@each $color, $value in $theme-colors {
+  $default: map-get($value, "default");
+  $pressed: map-get($value, "pressed");
+  .ui-btn-#{$color} {
+    background: $default;
+    @include breakpointMin("md") {
+      &:hover {
+        // background: $pressed;
+        background-image: linear-gradient(
+          315deg,
+          $pressed 14.64%,
+          $pressed 85.36%
+        );
+      }
+    }
+    &:disabled {
+      background: $gray-150;
+      color: $gray-600;
+      pointer-events: none;
+    }
+  }
+}
+
+@each $font, $value in $font-colors {
+  $default: map-get($value, "default");
+  $pressed: map-get($value, "pressed");
+  .ui-btn-#{$font} {
+    color: $default;
+    &:active,
+    &:focus {
+      color: $pressed;
+    }
+  }
+}
+
+@each $key, $value in $button-size {
+  $fontSize: map-get($value, "fontSize");
+  $lineHeight: map-get($value, "lineHeight");
+  $height: map-get($value, "height");
+  .ui-btn-#{$key} {
+    font-size: $fontSize;
+    line-height: $lineHeight;
+    height: $height;
+  }
+}
+
+@mixin btn-single($bool: false) {
+  @each $size, $detail in $button-size {
+    $width: map-get($detail, "height");
+    @if $bool {
+      &.ui-btn-#{$size} {
+        width: $width;
+        padding: 0;
+        @if ($size == "lg") {
+          font-size: 3.4rem;
+        } @else if($size == "md") {
+          font-size: 2.4rem;
+        } @else {
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+}
+
+@mixin btn-icon($bool: false) {
+  @if $bool {
+    flex-direction: row;
+    [class^="ic-"]:not(.btn-icon-search),
+    [class*="ic-"]:not(.btn-icon-search) {
+      display: inline-flex;
+      justify-content: center;
+    }
+    @each $size, $detail in $btn-icon-props {
+      $font-size: map-get($detail, "font-size");
+      &.ui-btn-#{$size} {
+        [class^="ic-"],
+        [class*=" ic-"] {
+          font-size: $font-size;
+          width: $font-size;
+        }
+      }
+    }
+  }
+}
+
+@mixin btn-icon-direction($direction: "") {
+  // each for all btn
+  // check icon on button posittion left or right
+  @each $size, $detail in $btn-icon-props {
+    // @debug $size;
+    $margin-icon: map-get($detail, "margin-icon");
+    @if $direction == "left" {
+      &.ui-btn-#{$size} {
+        [class^="fa-"],
+        [class*=" fa-"] {
+          margin-right: $margin-icon;
+          order: 0;
+        }
+      }
+    } @else {
+      &.ui-btn-#{$size} {
+        // flex-direction: row-reverse;
+        [class^="fa-"],
+        [class*=" fa-"] {
+          margin-left: $margin-icon;
+          order: 1;
+        }
+      }
+    }
+  }
+}
+
+.ui-btn-icon {
+  @include btn-single($bool: true);
+  @extend .circle;
+  background-color: $gray-880;
+  &.primary {
+    background-image: linear-gradient(315deg, #1250dc 14.64%, #306de4 85.36%);
+    backdrop-filter: blur(2px);
+    i {
+      color: $white-100;
+    }
+  }
+  &.gray {
+    background-color: $primary-100;
+    i {
+      background: linear-gradient(315deg, #1250dc 0%, #306de4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+  &.white {
+    background-color: $white-100;
+    i {
+      background: linear-gradient(315deg, #1250dc 0%, #306de4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+}
+
+// btn icon
+.ui-btn-with-icon {
+  @include btn-icon($bool: true);
+}
+
+.ui-btn-icon-left {
+  @include btn-icon-direction("left");
+}
+
+.ui-btn-icon-right {
+  @include btn-icon-direction("right");
+}
+
+// btn padding and height
+@each $breakpoint, $value in $grid-breakpoints-mb {
+  $infix: breakpoint-infix($breakpoint, $grid-breakpoints-mb);
+  @include media-breakpoint-down($breakpoint, $grid-breakpoints-mb) {
+    @each $size, $value in $btn-font-size {
+      .ui-btn-#{$size}#{$infix} {
+        font-size: $value;
+        line-height: $value;
+      }
+    }
+    @each $size, $detail in $button-size {
+      // @debug $detail;
+      $padding: map-get($detail, "padding");
+      $height: map-get($detail, "height");
+      $keys: map-keys($detail); // padding, height,width (get keys of detail);
+      .ui-btn-#{$size}#{$infix} {
+        padding: #{$padding};
+        height: #{$height};
+        @if ($size == "xl") {
+          span:nth-child(2) {
+            font-size: 14px;
+            line-height: 20px;
+            font-weight: 400;
+          }
+        }
+      }
+    }
+  }
+}

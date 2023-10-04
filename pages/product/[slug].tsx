@@ -2,7 +2,7 @@ import { fetchProductEqual, fetchProductNotEqual, getAllProduct } from "@service
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { ToastContainer } from "react-toastify";
-import { Product } from "types/product";
+import { NKResponse } from "types/product";
 import 'react-toastify/dist/ReactToastify.css';
 import Wrapper from "@components/Wrapper/Wrapper";
 import BreardCumb from "@components/BreardCumb/BreardCumb";
@@ -12,8 +12,8 @@ import RelativedProduct from "@components/RelativedProduct/RelativedProduct";
 import LayoutTransition from "@components/LayoutTransition/LayoutTransition";
 
 type IProp = {
-    product: Product;
-    products: Product;
+    product: NKResponse.CMS.Product;
+    products: NKResponse.CMS.Product;
     slug: string;
 };
 

@@ -1,0 +1,78 @@
+$toggles: (
+  "lg": (
+    width: 48px,
+    height: 28px,
+  ),
+  "md": (
+    width: 44px,
+    height: 24px,
+  ),
+  "sm": (
+    width: 40px,
+    height: 20px,
+  ),
+);
+
+.ui-toggle {
+  display: flex;
+  $this: &;
+  @each $key, $value in $toggles {
+    $width: map-get($value, "width");
+    $height: map-get($value, "height");
+    $circle: #{$height - 4};
+    @debug $key;
+    &-#{$key} {
+      #{$this}-input {
+        display: none;
+        &:checked ~ label {
+          background: $gradient-blue-1;
+          &:before {
+            left: calc(100% - #{$height});
+          }
+        }
+      }
+      #{$this}-shape {
+        display: block;
+        position: relative;
+
+        width: $width;
+        height: $height;
+        border-radius: 100px;
+        &:before {
+          width: $circle;
+          height: $circle;
+        }
+      }
+    }
+  }
+  &-shape {
+    background: $gray-400;
+    &:after,
+    &:before {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      transition: 0.35s cubic-bezier(0.54, 1.6, 0.5, 1);
+    }
+    &:before {
+      top: 2px;
+      left: 2px;
+      background: $white-100;
+      box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.15);
+      border-radius: 50%;
+    }
+  }
+  &-input {
+    &:checked ~ label ~ .label {
+      .label-text {
+        font-weight: 500;
+      }
+    }
+  }
+  &-disable {
+    #{$this}-shape {
+      background: $gray-200;
+      pointer-events: none;
+    }
+  }
+}

@@ -1,0 +1,51 @@
+// Container widths
+$enable-grid-classes: true !default;
+
+@if $enable-grid-classes {
+  .lc-container {
+    @include max-container();
+    @include make-container-max-widths();
+
+    //mobile
+    @include breakpoint("md") {
+      padding: 0 10px !important;
+    } // Container widths
+    $enable-grid-classes: true !default;
+
+    // @if $enable-grid-classes {
+    //     .lc-container {
+    //         @include max-container();
+    //         @include make-container-max-widths();
+
+    //         //mobile
+    //         @include breakpoint("md") {
+    //             padding: 0 10px;
+    //         }
+
+    //         @include breakpoint("sm") {
+    //             @include containerMb();
+    //         }
+    //     }
+
+    //     // .lc-main {
+    //     //     .container {
+    //     //         @include breakpoint("md") {
+    //     //             padding: 0;
+    //     //         }
+    //     //     }
+    //     // }
+    // }
+
+    @include breakpoint("sm") {
+      @include containerMb();
+    }
+  }
+
+  // .lc-main {
+  //     .container {
+  //         @include breakpoint("md") {
+  //             padding: 0;
+  //         }
+  //     }
+  // }
+}

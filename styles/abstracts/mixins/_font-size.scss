@@ -1,0 +1,13 @@
+@mixin font-size($size, $base: 16) {
+  　　font-size: $size + px;
+  　　font-size: ($size / $base) + rem;
+}
+@mixin font($size, $weight) {
+  font-size: $size;
+  font-weight: $weight;
+}
+@mixin font-ppc($size, $weight, $lh) {
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $lh;
+}

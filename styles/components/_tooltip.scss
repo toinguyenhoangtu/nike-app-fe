@@ -1,0 +1,213 @@
+$pos1: calc(100% + 0.8rem);
+$pos2: -1.6rem;
+
+.ui-tooltip-hover {
+  position: relative;
+  &:hover {
+    .ui-tooltip,
+    .ui-tooltip:after {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  &-top-right {
+    .ui-tooltip {
+      bottom: $pos1;
+      right: 0;
+    }
+  }
+  &-top-center {
+    .ui-tooltip {
+      bottom: $pos1;
+      right: 50%;
+      margin-right: -15rem;
+    }
+  }
+  &-top-left {
+    .ui-tooltip {
+      bottom: $pos1;
+      left: 0;
+    }
+  }
+  &-left-top {
+    .ui-tooltip {
+      right: $pos1;
+      top: 0;
+    }
+  }
+  &-left-center {
+    .ui-tooltip {
+      right: $pos1;
+      top: 50%;
+      margin-top: -3.4rem;
+    }
+  }
+  &-left-bottom {
+    .ui-tooltip {
+      right: $pos1;
+      bottom: 0;
+    }
+  }
+  &-bottom-left {
+    .ui-tooltip {
+      top: $pos1;
+      left: 0;
+    }
+  }
+  &-bottom-center {
+    .ui-tooltip {
+      top: $pos1;
+      left: 50%;
+      margin-left: -15rem;
+    }
+  }
+  &-bottom-right {
+    .ui-tooltip {
+      top: $pos1;
+      right: 0;
+    }
+  }
+  &-right-top {
+    .ui-tooltip {
+      left: $pos1;
+      top: 0;
+    }
+  }
+  &-right-center {
+    .ui-tooltip {
+      left: $pos1;
+      top: 50%;
+      margin-top: -3.4rem;
+    }
+  }
+  &-right-bottom {
+    .ui-tooltip {
+      left: $pos1;
+      bottom: 0;
+    }
+  }
+}
+.ui-tooltip {
+  @include font-ppc(1.6rem, 400, 2.4rem);
+  padding: 0.8rem 1.2rem;
+  display: inline-flex;
+  background: $gray-700;
+  border-radius: 0.8rem;
+  color: $white-200;
+  position: absolute;
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 2;
+  width: 30rem;
+  text-align: left;
+  p {
+    @include font-ppc(1.6rem, 400, 2.4rem);
+  }
+  a {
+    @include font-ppc(1.6rem, 500, 2.4rem);
+    border-bottom: 0.1rem solid $white-200;
+    margin-top: 0.4rem;
+    display: inline-block;
+    color: $white-200;
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-width: 0.8rem;
+    border-style: solid;
+    transition: all 0.3s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+  }
+  &-top-right {
+    &:after {
+      top: $pos2;
+      right: 1rem;
+      border-color: transparent transparent $gray-700 transparent;
+    }
+  }
+  &-top-center {
+    &:after {
+      top: $pos2;
+      right: 50%;
+      margin-right: -1rem;
+      border-color: transparent transparent $gray-700 transparent;
+    }
+  }
+  &-top-left {
+    &:after {
+      top: $pos2;
+      left: 1rem;
+      border-color: transparent transparent $gray-700 transparent;
+    }
+  }
+  &-bottom-right {
+    &:after {
+      bottom: $pos2;
+      right: 1rem;
+      border-color: $gray-700 transparent transparent transparent;
+    }
+  }
+  &-bottom-center {
+    &:after {
+      bottom: $pos2;
+      right: 50%;
+      margin-right: -1rem;
+      border-color: $gray-700 transparent transparent transparent;
+    }
+  }
+  &-bottom-left {
+    &:after {
+      bottom: $pos2;
+      left: 1rem;
+      border-color: $gray-700 transparent transparent transparent;
+    }
+  }
+  &-left-top {
+    &:after {
+      left: $pos2;
+      top: 1rem;
+      border-color: transparent $gray-700 transparent transparent;
+    }
+  }
+  &-left-center {
+    &:after {
+      left: $pos2;
+      top: 50%;
+      margin-top: -0.8rem;
+      border-color: transparent $gray-700 transparent transparent;
+    }
+  }
+  &-left-bottom {
+    &:after {
+      left: $pos2;
+      bottom: 1rem;
+      border-color: transparent $gray-700 transparent transparent;
+    }
+  }
+  &-right-top {
+    &:after {
+      right: $pos2;
+      top: 1rem;
+      border-color: transparent transparent transparent $gray-700;
+    }
+  }
+  &-right-center {
+    &:after {
+      right: -1.6rem;
+      top: 50%;
+      margin-top: -0.8rem;
+      border-color: transparent transparent transparent $gray-700;
+    }
+  }
+  &-right-bottom {
+    &:after {
+      right: $pos2;
+      bottom: 1rem;
+      border-color: transparent transparent transparent $gray-700;
+    }
+  }
+}

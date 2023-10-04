@@ -1,0 +1,15 @@
+//text color
+@each $key, $value in $colors {
+  .txt-#{$key} {
+    color: #{$value};
+  }
+}
+.txt-center {
+  text-align: center;
+}
+.txt-right {
+  text-align: right;
+}
+.txt-left {
+  text-align: left;
+}

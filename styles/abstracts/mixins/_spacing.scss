@@ -1,0 +1,15 @@
+@mixin space($name_space, $name_style, $x: null, $y: null) {
+  @each $i in $spacer {
+    #{$name_space + $i} {
+      #{$name_style}: #{$i}px !important;
+    }
+  }
+}
+@mixin spaceXY($name_space, $name_x, $name-y) {
+  @each $i in $spacer {
+    #{$name_space + $i} {
+      #{$name_x}: #{$i}px !important;
+      #{$name_y}: #{$i}px !important;
+    }
+  }
+}

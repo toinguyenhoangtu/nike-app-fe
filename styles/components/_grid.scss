@@ -1,0 +1,67 @@
+// container
+// Row
+//
+// Rows contain your columns.
+$padding-x-mb: 8px !default;
+@if $enable-grid-classes {
+  .row {
+    @include make-row();
+    &.cs-row-m-8 {
+      margin-right: -8px;
+      margin-left: -8px;
+    }
+    > .cs-col-p-8 {
+      padding-right: 8px;
+      padding-left: 8px;
+    }
+  }
+  .no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+
+    > .g-col,
+    > [class*="col-"] {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+  .row.no-gutters {
+    .g-col-8.g-col-md-12 {
+      padding-right: 1rem !important;
+    }
+    @include breakpoint("md") {
+      .g-col-8.g-col-md-12 {
+        padding-right: 0 !important;
+      }
+    }
+  }
+}
+
+@if $enable-grid-classes {
+  @include make-grid-columns();
+  .row {
+    @include breakpoint("md") {
+      // margin-right: ($grid-gutter-width / -2 + 2);
+      // margin-left: ($grid-gutter-width / -2 + 2);
+
+      margin-right: 0;
+      margin-left: 0;
+      > .g-col,
+      > [class*="g-col"] {
+        padding-right: 10px;
+        padding-left: 10px;
+      }
+    }
+
+    @include breakpoint("xs") {
+      margin-right: ($grid-gutter-width / -2 + 8);
+      margin-left: ($grid-gutter-width / -2 + 8);
+      // @debug $grid-gutter-width;
+      > .g-col,
+      > [class*="g-col"] {
+        padding-right: 4px;
+        padding-left: 4px;
+      }
+    }
+  }
+}

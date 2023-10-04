@@ -1,0 +1,28 @@
+.ui-carousel-control {
+  @include inlineFlexCenter();
+  width: 4rem;
+  height: 4rem;
+  background: $white-100;
+  box-shadow: 0rem 0rem 2.4rem -0.4rem rgba(0, 39, 102, 0.08),
+    0rem 0rem 0.8rem -0.4rem rgba(0, 39, 102, 0.03);
+  border-radius: 100%;
+  cursor: pointer;
+  &::after {
+    display: none;
+  }
+  i {
+    color: $primary-500;
+    font-size: 1.8rem;
+  }
+  &.dark {
+    background: rgba(2, 11, 39, 0.4);
+    i {
+      color: $white-100;
+      font-size: 1.8rem;
+    }
+  }
+  &-small {
+    width: 3.2rem;
+    height: 3.2rem;
+  }
+}

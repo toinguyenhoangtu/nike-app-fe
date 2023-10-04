@@ -1,0 +1,231 @@
+$stepper-vertical-spacing: 3.6rem;
+
+.ui-stepper {
+  max-width: 60rem;
+  display: flex;
+  $this: &;
+  &-item {
+    flex: 1;
+    &:not(:first-child) {
+      #{$this}-tab {
+        &::before,
+        &::after {
+          content: "";
+          position: absolute;
+          z-index: -1;
+          top: 1rem;
+          transform: translateY(-50%);
+          height: 0.2rem;
+          transition: $transition-sm;
+        }
+        &:before {
+          right: 200%;
+          width: 0;
+          z-index: 2;
+          background: linear-gradient(315deg, #039836 14.64%, #12b75e 85.36%);
+        }
+        &:after {
+          right: 50%;
+          width: 100%;
+          z-index: 1;
+          background: $gray-300;
+        }
+      }
+    }
+    &.active,
+    &.complete {
+      #{$this}-tab {
+        &:before {
+          right: 50%;
+          width: 100%;
+        }
+      }
+      #{$this}-circle {
+        border: none;
+      }
+    }
+    &.active {
+      #{$this}-circle {
+        background: $white-100;
+        &,
+        &:after {
+          transition-delay: $transition-duration-sm;
+        }
+        &:after {
+          transform: scale(1);
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+      .label-text {
+        font-weight: 500;
+      }
+    }
+    &.complete {
+      #{$this}-circle {
+        background: linear-gradient(315deg, #039836 14.64%, #12b75e 85.36%);
+        [class^="fa-"],
+        [class*=" fa-"] {
+          display: block;
+        }
+        &:after {
+          display: none;
+        }
+      }
+    }
+  }
+  &-tab {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .label {
+      padding-top: 0.4rem;
+    }
+    .label-text {
+      font-size: 1.4rem;
+      line-height: 2rem;
+      color: $gray-700;
+      @media (max-width: 992px) {
+        font-size: 1.3rem;
+        line-height: 1.8rem;
+      }
+    }
+    .time {
+      font-weight: 400;
+      font-size: 1.3rem;
+      line-height: 1.8rem;
+      text-align: center;
+      letter-spacing: 0.02em;
+      color: $gray-700;
+      padding-top: 0.8rem;
+      @media (max-width: 992px) {
+        font-size: 1.2rem;
+        line-height: 1.6rem;
+      }
+    }
+  }
+  &-circle {
+    @include font-ppc(1.2rem, 500, 1.6rem);
+    position: relative;
+    z-index: 3;
+    width: 2rem;
+    height: 2rem;
+    color: $white-100;
+    border-radius: 100%;
+    background: $white-100;
+    border: 1px solid #c1c8d1;
+    transition: $transition;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    [class^="fa-"],
+    [class*=" fa-"] {
+      display: none;
+      font-size: 1.6rem;
+    }
+    &:after {
+      content: "";
+      width: 1rem;
+      height: 1rem;
+      border: 0.2rem solid #12b75e;
+      border-radius: 50%;
+      transform: scale(0.3);
+      opacity: 0;
+      visibility: hidden;
+      transition: $transition;
+    }
+    // &:hover {
+    //   border-color: $primary;
+    //   background: $white-100;
+    //   &:after {
+    //     transform: scale(1);
+    //     opacity: 1;
+    //     visibility: visible;
+    //   }
+    // }
+  }
+  &-number {
+    #{$this}-item {
+      &.active {
+        #{$this}-circle {
+          transition-delay: 0s;
+          // &:hover {
+          //   background: $white-100;
+          // }
+          &:after {
+            display: block;
+          }
+        }
+        .text {
+          display: none;
+        }
+      }
+    }
+    #{$this}-circle {
+      background: $gray-500;
+      border-color: $gray-500;
+      // &:hover {
+      //   border-color: $primary;
+      //   background: $primary;
+      // }
+      &:after {
+        display: none;
+      }
+    }
+  }
+  &-vertical {
+    display: inline-flex;
+    flex-direction: column;
+    #{$this}-item {
+      margin-bottom: $stepper-vertical-spacing;
+      &:not(:first-child) {
+        #{$this}-tab {
+          &:before,
+          &:after {
+            left: 1rem;
+            right: unset;
+            top: unset;
+            transform: translateX(-50%);
+            width: 0.2rem;
+          }
+          &:before {
+            height: 0;
+            bottom: calc(100% + #{$stepper-vertical-spacing});
+          }
+          &:after {
+            height: $stepper-vertical-spacing;
+            bottom: 100%;
+          }
+        }
+      }
+      &.active,
+      &.complete {
+        #{$this}-tab {
+          &:before {
+            height: $stepper-vertical-spacing;
+            bottom: 100%;
+            // right: 50%;
+            // width: 100%;
+          }
+        }
+      }
+      &.complete {
+        #{$this}-tab {
+          &:before,
+          &:after {
+            width: 0.2rem;
+          }
+        }
+      }
+    }
+    #{$this}-tab {
+      flex-direction: row;
+      .label {
+        padding-top: 0;
+        padding-left: 0.8rem;
+      }
+    }
+  }
+}

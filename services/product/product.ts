@@ -1,19 +1,19 @@
 import { API_URL } from "pages/utils/util"
 import { HTTP_METHOD } from "@enums/HTTP"
 import APIClient from "@services/request/APIClient"
-import { Product } from "types/product"
+import { NKResponse } from "types/product"
 import useSWR from "swr"
 // import { Product } from "types/product"
 
 export const getAllProduct = async () => {
-    return APIClient<Product>(
+    return APIClient<NKResponse.CMS.Product>(
         `${API_URL}/api/products?populate=*`,
         HTTP_METHOD.GET
     )
 }
 
-export const useProductFilter =  (slug: string, pageIndex?: number, maxResult?: number, option?: any) => {
-    const { data: response, error, isLoading } = useSWR<Product>(
+export const ProductFilter =  (slug: string, pageIndex?: number, maxResult?: number, option?: any) => {
+    const { data: response, error, isLoading } = useSWR<NKResponse.CMS.Product>(
         `${API_URL}/api/products?populate=*&[filters][categories][slug][$eq]=${slug}&pagination[page]=${pageIndex}&pagination[pageSize]=${maxResult}`,
         APIClient,
         {
@@ -24,22 +24,22 @@ export const useProductFilter =  (slug: string, pageIndex?: number, maxResult?: 
     return { response, error, isLoading };
 }
 
-export const useProductFilterPage = (slug: string, maxResult: number) => {
-    return APIClient<Product>(
+export const ProductFilterPage = (slug: string, maxResult: number) => {
+    return APIClient<NKResponse.CMS.Product>(
         `${API_URL}/api/products?populate=*&[filters][categories][slug][$eq]=${slug}&pagination[page]=1&pagination[pageSize]=${maxResult}`,
         HTTP_METHOD.GET
     )
 }
 
 export const fetchProductEqual = (slug: string) => {
-    return APIClient<Product>(
+    return APIClient<NKResponse.CMS.Product>(
         `${API_URL}/api/products?populate=*&filters[slug][$eq]=${slug}`,
         HTTP_METHOD.GET
     )
 }
 
 export const fetchProductNotEqual = (slug: string) => {
-    return APIClient<Product>(
+    return APIClient<NKResponse.CMS.Product>(
         `${API_URL}/api/products?populate=*&filters[slug][$ne]=${slug}`,
         HTTP_METHOD.GET
     )

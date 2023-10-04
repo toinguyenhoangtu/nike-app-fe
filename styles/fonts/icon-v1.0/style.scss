@@ -1,0 +1,1109 @@
+@import "variables";
+
+@font-face {
+  font-family: "#{$icomoon-font-family}";
+  src: url("#{$icomoon-font-path}/#{$icomoon-font-family}.eot?x8jf8p");
+  src: url("#{$icomoon-font-path}/#{$icomoon-font-family}.eot?x8jf8p#iefix")
+      format("embedded-opentype"),
+    url("#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?x8jf8p")
+      format("truetype"),
+    url("#{$icomoon-font-path}/#{$icomoon-font-family}.woff?x8jf8p")
+      format("woff"),
+    url("#{$icomoon-font-path}/#{$icomoon-font-family}.svg?x8jf8p##{$icomoon-font-family}")
+      format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "#{$icomoon-font-family}" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-ic-360 {
+  &:before {
+    content: $icon-ic-360;
+  }
+}
+.icon-ic-a-watch {
+  &:before {
+    content: $icon-ic-a-watch;
+  }
+}
+.icon-ic-adapter {
+  &:before {
+    content: $icon-ic-adapter;
+  }
+}
+.icon-ic-air-purifier {
+  &:before {
+    content: $icon-ic-air-purifier;
+  }
+}
+.icon-ic-android {
+  &:before {
+    content: $icon-ic-android;
+  }
+}
+.icon-ic-angle-double-down {
+  &:before {
+    content: $icon-ic-angle-double-down;
+  }
+}
+.icon-ic-angle-double-left {
+  &:before {
+    content: $icon-ic-angle-double-left;
+  }
+}
+.icon-ic-angle-double-right {
+  &:before {
+    content: $icon-ic-angle-double-right;
+  }
+}
+.icon-ic-angle-double-up {
+  &:before {
+    content: $icon-ic-angle-double-up;
+  }
+}
+.icon-ic-angle-down-thin {
+  &:before {
+    content: $icon-ic-angle-down-thin;
+  }
+}
+.icon-ic-angle-down {
+  &:before {
+    content: $icon-ic-angle-down;
+  }
+}
+.icon-ic-angle-left-thin {
+  &:before {
+    content: $icon-ic-angle-left-thin;
+  }
+}
+.icon-ic-angle-left {
+  &:before {
+    content: $icon-ic-angle-left;
+  }
+}
+.icon-ic-angle-right-thin {
+  &:before {
+    content: $icon-ic-angle-right-thin;
+  }
+}
+.icon-ic-angle-right {
+  &:before {
+    content: $icon-ic-angle-right;
+  }
+}
+.icon-ic-angle-up-thin {
+  &:before {
+    content: $icon-ic-angle-up-thin;
+  }
+}
+.icon-ic-angle-up {
+  &:before {
+    content: $icon-ic-angle-up;
+  }
+}
+.icon-ic-antutu {
+  &:before {
+    content: $icon-ic-antutu;
+  }
+}
+.icon-ic-apple-cable {
+  &:before {
+    content: $icon-ic-apple-cable;
+  }
+}
+.icon-ic-apple-cover-1 {
+  &:before {
+    content: $icon-ic-apple-cover-1;
+  }
+}
+.icon-ic-apple-cover {
+  &:before {
+    content: $icon-ic-apple-cover;
+  }
+}
+.icon-ic-apple-imac {
+  &:before {
+    content: $icon-ic-apple-imac;
+  }
+}
+.icon-ic-apple-ipad {
+  &:before {
+    content: $icon-ic-apple-ipad;
+  }
+}
+.icon-ic-apple-iphone {
+  &:before {
+    content: $icon-ic-apple-iphone;
+  }
+}
+.icon-ic-apple-keyboard {
+  &:before {
+    content: $icon-ic-apple-keyboard;
+  }
+}
+.icon-ic-apple-macbook {
+  &:before {
+    content: $icon-ic-apple-macbook;
+  }
+}
+.icon-ic-apple-mouse {
+  &:before {
+    content: $icon-ic-apple-mouse;
+  }
+}
+.icon-ic-apple-power {
+  &:before {
+    content: $icon-ic-apple-power;
+  }
+}
+.icon-ic-apple-tv {
+  &:before {
+    content: $icon-ic-apple-tv;
+  }
+}
+.icon-ic-apple-watch {
+  &:before {
+    content: $icon-ic-apple-watch;
+  }
+}
+.icon-ic-apple {
+  &:before {
+    content: $icon-ic-apple;
+  }
+}
+.icon-ic-arrow-select {
+  &:before {
+    content: $icon-ic-arrow-select;
+  }
+}
+.icon-ic-bag {
+  &:before {
+    content: $icon-ic-bag;
+  }
+}
+.icon-ic-battery-charge {
+  &:before {
+    content: $icon-ic-battery-charge;
+  }
+}
+.icon-ic-battery-full {
+  &:before {
+    content: $icon-ic-battery-full;
+  }
+}
+.icon-ic-battery {
+  &:before {
+    content: $icon-ic-battery;
+  }
+}
+.icon-ic-bluetooth {
+  &:before {
+    content: $icon-ic-bluetooth;
+  }
+}
+.icon-ic-boiler {
+  &:before {
+    content: $icon-ic-boiler;
+  }
+}
+.icon-ic-book {
+  &:before {
+    content: $icon-ic-book;
+  }
+}
+.icon-ic-box {
+  &:before {
+    content: $icon-ic-box;
+  }
+}
+.icon-ic-cable {
+  &:before {
+    content: $icon-ic-cable;
+  }
+}
+.icon-ic-calendar {
+  &:before {
+    content: $icon-ic-calendar;
+  }
+}
+.icon-ic-call {
+  &:before {
+    content: $icon-ic-call;
+  }
+}
+.icon-ic-cam {
+  &:before {
+    content: $icon-ic-cam;
+  }
+}
+.icon-ic-camera {
+  &:before {
+    content: $icon-ic-camera;
+  }
+}
+.icon-ic-cancel {
+  &:before {
+    content: $icon-ic-cancel;
+  }
+}
+.icon-ic-card {
+  &:before {
+    content: $icon-ic-card;
+  }
+}
+.icon-ic-cart-refresh .path1 {
+  &:before {
+    content: $icon-ic-cart-refresh-path1;
+    color: rgb(0, 0, 0);
+  }
+}
+.icon-ic-cart-refresh .path2 {
+  &:before {
+    content: $icon-ic-cart-refresh-path2;
+    margin-left: -0.94140625em;
+    color: rgb(255, 255, 255);
+  }
+}
+.icon-ic-cart-refresh .path3 {
+  &:before {
+    content: $icon-ic-cart-refresh-path3;
+    margin-left: -0.94140625em;
+    color: rgb(255, 255, 255);
+  }
+}
+.icon-ic-cart {
+  &:before {
+    content: $icon-ic-cart;
+  }
+}
+.icon-ic-chat {
+  &:before {
+    content: $icon-ic-chat;
+  }
+}
+.icon-ic-check {
+  &:before {
+    content: $icon-ic-check;
+  }
+}
+.icon-ic-circle-lg {
+  &:before {
+    content: $icon-ic-circle-lg;
+  }
+}
+.icon-ic-circle-md {
+  &:before {
+    content: $icon-ic-circle-md;
+  }
+}
+.icon-ic-circle-sm {
+  &:before {
+    content: $icon-ic-circle-sm;
+  }
+}
+.icon-ic-clock {
+  &:before {
+    content: $icon-ic-clock;
+  }
+}
+.icon-ic-close {
+  &:before {
+    content: $icon-ic-close;
+  }
+}
+.icon-ic-cog {
+  &:before {
+    content: $icon-ic-cog;
+  }
+}
+.icon-ic-cogs {
+  &:before {
+    content: $icon-ic-cogs;
+  }
+}
+.icon-ic-combined-shape {
+  &:before {
+    content: $icon-ic-combined-shape;
+  }
+}
+.icon-ic-compatible-devices {
+  &:before {
+    content: $icon-ic-compatible-devices;
+  }
+}
+.icon-ic-connect {
+  &:before {
+    content: $icon-ic-connect;
+  }
+}
+.icon-ic-cover {
+  &:before {
+    content: $icon-ic-cover;
+  }
+}
+.icon-ic-cpu {
+  &:before {
+    content: $icon-ic-cpu;
+  }
+}
+.icon-ic-crown {
+  &:before {
+    content: $icon-ic-crown;
+  }
+}
+.icon-ic-display {
+  &:before {
+    content: $icon-ic-display;
+  }
+}
+.icon-ic-doc {
+  &:before {
+    content: $icon-ic-doc;
+  }
+}
+.icon-ic-down-min {
+  &:before {
+    content: $icon-ic-down-min;
+  }
+}
+.icon-ic-down-thin {
+  &:before {
+    content: $icon-ic-down-thin;
+  }
+}
+.icon-ic-down {
+  &:before {
+    content: $icon-ic-down;
+  }
+}
+.icon-ic-download {
+  &:before {
+    content: $icon-ic-download;
+  }
+}
+.icon-ic-drive {
+  &:before {
+    content: $icon-ic-drive;
+  }
+}
+.icon-ic-edit-3 {
+  &:before {
+    content: $icon-ic-edit-3;
+  }
+}
+.icon-ic-edit {
+  &:before {
+    content: $icon-ic-edit;
+  }
+}
+.icon-ic-emo-happy {
+  &:before {
+    content: $icon-ic-emo-happy;
+  }
+}
+.icon-ic-exclamation {
+  &:before {
+    content: $icon-ic-exclamation;
+  }
+}
+.icon-ic-expand {
+  &:before {
+    content: $icon-ic-expand;
+  }
+}
+.icon-ic-export {
+  &:before {
+    content: $icon-ic-export;
+  }
+}
+.icon-ic-eye {
+  &:before {
+    content: $icon-ic-eye;
+  }
+}
+.icon-ic-face {
+  &:before {
+    content: $icon-ic-face;
+  }
+}
+.icon-ic-fado {
+  &:before {
+    content: $icon-ic-fado;
+  }
+}
+.icon-ic-fast-shipping {
+  &:before {
+    content: $icon-ic-fast-shipping;
+  }
+}
+.icon-ic-ffriend {
+  &:before {
+    content: $icon-ic-ffriend;
+  }
+}
+.icon-ic-filter {
+  &:before {
+    content: $icon-ic-filter;
+  }
+}
+.icon-ic-flash {
+  &:before {
+    content: $icon-ic-flash;
+  }
+}
+.icon-ic-front-camera {
+  &:before {
+    content: $icon-ic-front-camera;
+  }
+}
+.icon-ic-game {
+  &:before {
+    content: $icon-ic-game;
+  }
+}
+.icon-ic-gift {
+  &:before {
+    content: $icon-ic-gift;
+  }
+}
+.icon-ic-glasses {
+  &:before {
+    content: $icon-ic-glasses;
+  }
+}
+.icon-ic-guarantee-time {
+  &:before {
+    content: $icon-ic-guarantee-time;
+  }
+}
+.icon-ic-hairdryer {
+  &:before {
+    content: $icon-ic-hairdryer;
+  }
+}
+.icon-ic-hdd-black {
+  &:before {
+    content: $icon-ic-hdd-black;
+  }
+}
+.icon-ic-hdd {
+  &:before {
+    content: $icon-ic-hdd;
+  }
+}
+.icon-ic-headphone {
+  &:before {
+    content: $icon-ic-headphone;
+  }
+}
+.icon-ic-heart-o {
+  &:before {
+    content: $icon-ic-heart-o;
+  }
+}
+.icon-ic-heart {
+  &:before {
+    content: $icon-ic-heart;
+  }
+}
+.icon-ic-help {
+  &:before {
+    content: $icon-ic-help;
+  }
+}
+.icon-ic-home {
+  &:before {
+    content: $icon-ic-home;
+  }
+}
+.icon-ic-hotsale {
+  &:before {
+    content: $icon-ic-hotsale;
+  }
+}
+.icon-ic-hub {
+  &:before {
+    content: $icon-ic-hub;
+  }
+}
+.icon-ic-humidity-2 {
+  &:before {
+    content: $icon-ic-humidity-2;
+  }
+}
+.icon-ic-humidity {
+  &:before {
+    content: $icon-ic-humidity;
+  }
+}
+.icon-ic-info {
+  &:before {
+    content: $icon-ic-info;
+  }
+}
+.icon-ic-internet {
+  &:before {
+    content: $icon-ic-internet;
+  }
+}
+.icon-ic-keyboard {
+  &:before {
+    content: $icon-ic-keyboard;
+  }
+}
+.icon-ic-laptop-gaming {
+  &:before {
+    content: $icon-ic-laptop-gaming;
+  }
+}
+.icon-ic-laptop {
+  &:before {
+    content: $icon-ic-laptop;
+  }
+}
+.icon-ic-layout {
+  &:before {
+    content: $icon-ic-layout;
+  }
+}
+.icon-ic-left-thin {
+  &:before {
+    content: $icon-ic-left-thin;
+  }
+}
+.icon-ic-left {
+  &:before {
+    content: $icon-ic-left;
+  }
+}
+.icon-ic-lightbulb-1 {
+  &:before {
+    content: $icon-ic-lightbulb-1;
+  }
+}
+.icon-ic-lightbulb {
+  &:before {
+    content: $icon-ic-lightbulb;
+  }
+}
+.icon-ic-lightning {
+  &:before {
+    content: $icon-ic-lightning;
+  }
+}
+.icon-ic-like {
+  &:before {
+    content: $icon-ic-like;
+  }
+}
+.icon-ic-local-shipping {
+  &:before {
+    content: $icon-ic-local-shipping;
+  }
+}
+.icon-ic-location {
+  &:before {
+    content: $icon-ic-location;
+  }
+}
+.icon-ic-login {
+  &:before {
+    content: $icon-ic-login;
+  }
+}
+.icon-ic-mac-mini {
+  &:before {
+    content: $icon-ic-mac-mini;
+  }
+}
+.icon-ic-mac-pro {
+  &:before {
+    content: $icon-ic-mac-pro;
+  }
+}
+.icon-ic-machine {
+  &:before {
+    content: $icon-ic-machine;
+  }
+}
+.icon-ic-mail-o {
+  &:before {
+    content: $icon-ic-mail-o;
+  }
+}
+.icon-ic-mail {
+  &:before {
+    content: $icon-ic-mail;
+  }
+}
+.icon-ic-map-o {
+  &:before {
+    content: $icon-ic-map-o;
+  }
+}
+.icon-ic-map {
+  &:before {
+    content: $icon-ic-map;
+  }
+}
+.icon-ic-material {
+  &:before {
+    content: $icon-ic-material;
+  }
+}
+.icon-ic-megaphone {
+  &:before {
+    content: $icon-ic-megaphone;
+  }
+}
+.icon-ic-menu {
+  &:before {
+    content: $icon-ic-menu;
+  }
+}
+.icon-ic-minimize {
+  &:before {
+    content: $icon-ic-minimize;
+  }
+}
+.icon-ic-minus {
+  &:before {
+    content: $icon-ic-minus;
+  }
+}
+.icon-ic-mobile-phone {
+  &:before {
+    content: $icon-ic-mobile-phone;
+  }
+}
+.icon-ic-mouse-pad {
+  &:before {
+    content: $icon-ic-mouse-pad;
+  }
+}
+.icon-ic-mouse {
+  &:before {
+    content: $icon-ic-mouse;
+  }
+}
+.icon-ic-movie {
+  &:before {
+    content: $icon-ic-movie;
+  }
+}
+.icon-ic-new {
+  &:before {
+    content: $icon-ic-new;
+  }
+}
+.icon-ic-pause {
+  &:before {
+    content: $icon-ic-pause;
+  }
+}
+.icon-ic-pencil {
+  &:before {
+    content: $icon-ic-pencil;
+  }
+}
+.icon-ic-phone {
+  &:before {
+    content: $icon-ic-phone;
+  }
+}
+.icon-ic-phonecard {
+  &:before {
+    content: $icon-ic-phonecard;
+  }
+}
+.icon-ic-photo {
+  &:before {
+    content: $icon-ic-photo;
+  }
+}
+.icon-ic-picture {
+  &:before {
+    content: $icon-ic-picture;
+  }
+}
+.icon-ic-play {
+  &:before {
+    content: $icon-ic-play;
+  }
+}
+.icon-ic-plus {
+  &:before {
+    content: $icon-ic-plus;
+  }
+}
+.icon-ic-power-1 {
+  &:before {
+    content: $icon-ic-power-1;
+  }
+}
+.icon-ic-power-bank {
+  &:before {
+    content: $icon-ic-power-bank;
+  }
+}
+.icon-ic-power-socket-2 {
+  &:before {
+    content: $icon-ic-power-socket-2;
+  }
+}
+.icon-ic-power-socket {
+  &:before {
+    content: $icon-ic-power-socket;
+  }
+}
+.icon-ic-power {
+  &:before {
+    content: $icon-ic-power;
+  }
+}
+.icon-ic-print {
+  &:before {
+    content: $icon-ic-print;
+  }
+}
+.icon-ic-printer-ink {
+  &:before {
+    content: $icon-ic-printer-ink;
+  }
+}
+.icon-ic-projector-2 {
+  &:before {
+    content: $icon-ic-projector-2;
+  }
+}
+.icon-ic-projector {
+  &:before {
+    content: $icon-ic-projector;
+  }
+}
+.icon-ic-promo {
+  &:before {
+    content: $icon-ic-promo;
+  }
+}
+.icon-ic-quote {
+  &:before {
+    content: $icon-ic-quote;
+  }
+}
+.icon-ic-ram {
+  &:before {
+    content: $icon-ic-ram;
+  }
+}
+.icon-ic-reload {
+  &:before {
+    content: $icon-ic-reload;
+  }
+}
+.icon-ic-renew {
+  &:before {
+    content: $icon-ic-renew;
+  }
+}
+.icon-ic-replay {
+  &:before {
+    content: $icon-ic-replay;
+  }
+}
+.icon-ic-reply-all {
+  &:before {
+    content: $icon-ic-reply-all;
+  }
+}
+.icon-ic-reply {
+  &:before {
+    content: $icon-ic-reply;
+  }
+}
+.icon-ic-right-thin {
+  &:before {
+    content: $icon-ic-right-thin;
+  }
+}
+.icon-ic-right {
+  &:before {
+    content: $icon-ic-right;
+  }
+}
+.icon-ic-router {
+  &:before {
+    content: $icon-ic-router;
+  }
+}
+.icon-ic-save {
+  &:before {
+    content: $icon-ic-save;
+  }
+}
+.icon-ic-scales {
+  &:before {
+    content: $icon-ic-scales;
+  }
+}
+.icon-ic-screen-size {
+  &:before {
+    content: $icon-ic-screen-size;
+  }
+}
+.icon-ic-screenprotect {
+  &:before {
+    content: $icon-ic-screenprotect;
+  }
+}
+.icon-ic-sd-card {
+  &:before {
+    content: $icon-ic-sd-card;
+  }
+}
+.icon-ic-sdcard {
+  &:before {
+    content: $icon-ic-sdcard;
+  }
+}
+.icon-ic-search {
+  &:before {
+    content: $icon-ic-search;
+  }
+}
+.icon-ic-secondhand {
+  &:before {
+    content: $icon-ic-secondhand;
+  }
+}
+.icon-ic-security-camera {
+  &:before {
+    content: $icon-ic-security-camera;
+  }
+}
+.icon-ic-send {
+  &:before {
+    content: $icon-ic-send;
+  }
+}
+.icon-ic-shave-2 {
+  &:before {
+    content: $icon-ic-shave-2;
+  }
+}
+.icon-ic-shave {
+  &:before {
+    content: $icon-ic-shave;
+  }
+}
+.icon-ic-software {
+  &:before {
+    content: $icon-ic-software;
+  }
+}
+.icon-ic-speaker {
+  &:before {
+    content: $icon-ic-speaker;
+  }
+}
+.icon-ic-spin {
+  &:before {
+    content: $icon-ic-spin;
+  }
+}
+.icon-ic-star-half-o {
+  &:before {
+    content: $icon-ic-star-half-o;
+  }
+}
+.icon-ic-star-half {
+  &:before {
+    content: $icon-ic-star-half;
+  }
+}
+.icon-ic-star-o {
+  &:before {
+    content: $icon-ic-star-o;
+  }
+}
+.icon-ic-star {
+  &:before {
+    content: $icon-ic-star;
+  }
+}
+.icon-ic-tablet {
+  &:before {
+    content: $icon-ic-tablet;
+  }
+}
+.icon-ic-tag {
+  &:before {
+    content: $icon-ic-tag;
+  }
+}
+.icon-ic-tags {
+  &:before {
+    content: $icon-ic-tags;
+  }
+}
+.icon-ic-th-list {
+  &:before {
+    content: $icon-ic-th-list;
+  }
+}
+.icon-ic-th {
+  &:before {
+    content: $icon-ic-th;
+  }
+}
+.icon-ic-toothbrush {
+  &:before {
+    content: $icon-ic-toothbrush;
+  }
+}
+.icon-ic-trash-o {
+  &:before {
+    content: $icon-ic-trash-o;
+  }
+}
+.icon-ic-trash {
+  &:before {
+    content: $icon-ic-trash;
+  }
+}
+.icon-ic-trending-1 {
+  &:before {
+    content: $icon-ic-trending-1;
+  }
+}
+.icon-ic-trending {
+  &:before {
+    content: $icon-ic-trending;
+  }
+}
+.icon-ic-trophy {
+  &:before {
+    content: $icon-ic-trophy;
+  }
+}
+.icon-ic-tryon {
+  &:before {
+    content: $icon-ic-tryon;
+  }
+}
+.icon-ic-tv {
+  &:before {
+    content: $icon-ic-tv;
+  }
+}
+.icon-ic-up {
+  &:before {
+    content: $icon-ic-up;
+  }
+}
+.icon-ic-user {
+  &:before {
+    content: $icon-ic-user;
+  }
+}
+.icon-ic-vacuum-2 {
+  &:before {
+    content: $icon-ic-vacuum-2;
+  }
+}
+.icon-ic-vacuum {
+  &:before {
+    content: $icon-ic-vacuum;
+  }
+}
+.icon-ic-vga {
+  &:before {
+    content: $icon-ic-vga;
+  }
+}
+.icon-ic-video {
+  &:before {
+    content: $icon-ic-video;
+  }
+}
+.icon-ic-watch-automatic {
+  &:before {
+    content: $icon-ic-watch-automatic;
+  }
+}
+.icon-ic-watch-material {
+  &:before {
+    content: $icon-ic-watch-material;
+  }
+}
+.icon-ic-watch-screen {
+  &:before {
+    content: $icon-ic-watch-screen;
+  }
+}
+.icon-ic-watch {
+  &:before {
+    content: $icon-ic-watch;
+  }
+}
+.icon-ic-water-resistant-1 {
+  &:before {
+    content: $icon-ic-water-resistant-1;
+  }
+}
+.icon-ic-water-resistant {
+  &:before {
+    content: $icon-ic-water-resistant;
+  }
+}
+.icon-ic-water {
+  &:before {
+    content: $icon-ic-water;
+  }
+}
+.icon-ic-we {
+  &:before {
+    content: $icon-ic-we;
+  }
+}
+.icon-ic-weight {
+  &:before {
+    content: $icon-ic-weight;
+  }
+}
+.icon-ic-windows {
+  &:before {
+    content: $icon-ic-windows;
+  }
+}
+.icon-ic-youtube {
+  &:before {
+    content: $icon-ic-youtube;
+  }
+}
+.icon-ic-zoom-in {
+  &:before {
+    content: $icon-ic-zoom-in;
+  }
+}
+.icon-ic-zoom-out {
+  &:before {
+    content: $icon-ic-zoom-out;
+  }
+}

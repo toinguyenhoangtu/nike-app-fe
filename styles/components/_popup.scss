@@ -1,0 +1,45 @@
+.fade {
+  opacity: 0;
+  transition: opacity 0.15s linear;
+}
+.popup {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: none;
+  &.in {
+    display: block;
+    opacity: 1;
+  }
+  .wrapper {
+    background-color: $white-100;
+    border-radius: 1.2rem;
+    max-width: 80rem;
+    @include breakpoint("md") {
+      &.md-sm {
+        max-width: 40rem;
+      }
+    }
+  }
+  @include breakpoint("md") {
+    top: unset;
+  }
+  // .body {
+  // }
+  // .footer {
+  // }
+}
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  background-color: $black;
+}

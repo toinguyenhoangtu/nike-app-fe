@@ -1,0 +1,13 @@
+$background: #eaeffa;
+$radius: 17px;
+$color: #1250dc;
+.ui-badge {
+  @include inlineFlexCenter();
+  background: $background;
+  border-radius: $radius;
+  padding: 0 15px;
+  @include font-ppc(16px, 500, 24px);
+  text-align: right;
+  letter-spacing: 0.0025em;
+  color: $color;
+}

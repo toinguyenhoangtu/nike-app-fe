@@ -1,0 +1,125 @@
+.ui-accordion {
+  &-item {
+    background: $white-100;
+    padding: 1.4rem 0;
+    &:not(:last-child) {
+      box-shadow: inset 0px -1px 0px $gray-200;
+    }
+    &.active {
+      .ui-accordion-details {
+        display: block;
+      }
+      .ui-accordion-title {
+        > i {
+          @include transform(rotate(180deg));
+        }
+      }
+    }
+  }
+  &-title {
+    display: flex;
+    align-items: flex-start;
+    > i {
+      font-size: 2.4rem;
+      color: rgba(47, 54, 74, 0.8);
+    }
+    .title {
+      @include font-ppc(1.8rem, 600, 2.4rem);
+      letter-spacing: 0.0025em;
+      color: $gray-1000;
+      width: 100%;
+      display: flex;
+      > i {
+        font-size: 2rem;
+        margin-top: 0.1rem;
+        color: #657384;
+      }
+    }
+  }
+  &-details {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    color: $gray-1000;
+    padding-top: 1rem;
+    display: none;
+  }
+  &-card {
+    background: $white-100;
+    border: 1px solid #c1c8d1;
+    border-radius: 1.2rem;
+    padding: 1.6rem;
+    .ui-accordion-item:last-child {
+      padding-bottom: 0;
+    }
+  }
+  &-heading {
+    @include font-ppc(2rem, 500, 2.8rem);
+    display: flex;
+    letter-spacing: 0.005em;
+    color: $gray-1000;
+    box-shadow: inset 0px -1px 0px $gray-200;
+    padding-bottom: 1.6rem;
+    i {
+      font-size: 2.8rem;
+      color: #657384;
+    }
+  }
+  &-normal {
+    .ui-accordion-title {
+      .title {
+        @include font-ppc(1.6rem, 600, 2rem);
+      }
+      > i {
+        padding-bottom: 0;
+        padding-left: 0.8rem;
+      }
+    }
+    .ui-accordion-details {
+      padding-left: 2.4rem;
+    }
+    .active {
+      .ui-accordion-title > i {
+        padding-right: 0.8rem;
+        padding-left: 0;
+      }
+    }
+  }
+  &-small {
+    .ui-accordion-title {
+      .title {
+        @include font-ppc(1.4rem, 600, 2rem);
+      }
+      > i {
+        padding-bottom: 0.1rem;
+      }
+    }
+    .ui-accordion-details {
+      font-size: 1.4rem;
+      line-height: 2rem;
+    }
+    .ui-accordion-heading {
+      @include font-ppc(1.6rem, 500, 2.4rem);
+      padding-bottom: 0.8rem;
+      i {
+        font-size: 2rem;
+      }
+    }
+    .ui-accordion-card {
+      padding: 0.8rem;
+    }
+  }
+  @media (max-width: 992px) {
+    .ui-accordion-title {
+      .title {
+        @include font-ppc(1.4rem, 600, 2rem);
+      }
+      > i {
+        font-size: 2rem;
+      }
+    }
+    .ui-accordion-details {
+      font-size: 1.4rem;
+      line-height: 2rem;
+    }
+  }
+}

@@ -1,15 +1,14 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
-import { Product } from 'types/product'
-import Image from "next/image";
+import { NKResponse } from "types/product";
 
 type IProp = {
-    data: Product;
+    data: NKResponse.CMS.Product;
 };
 const ProductDetailsCarousel = ({ data }: IProp) => {
     const image = data?.data[0]?.attributes.images;
     if (!image) return null;
-
+    
     return (
         <div className="text-white text-[20px] w-full max-w-[1360px] mx-auto sticky top-[50px]">
             <Carousel

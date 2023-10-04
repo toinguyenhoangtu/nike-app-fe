@@ -1,0 +1,90 @@
+.p-l-1 {
+  padding-left: 1px;
+}
+
+//margin
+@include space(".m-t-", "margin-top");
+@include space(".m-l-", "margin-left");
+@include space(".m-r-", "margin-right");
+@include space(".m-b-", "margin-bottom");
+//padding
+@include space(".p-b-", "padding-bottom");
+@include space(".p-r-", "padding-right");
+@include space(".p-l-", "padding-left");
+@include space(".p-t-", "padding-top");
+
+//padding
+@include spaceXY(".p-x-", "padding-left", "padding-right");
+@include spaceXY(".p-y-", "padding-top", "padding-bottom");
+//margin
+@include spaceXY(".m-y-", "margin-top", "margin-bottom");
+@include spaceXY(".m-x-", "margin-right", "margin-left");
+//padding & margin : x & y
+.m-l-auto {
+  margin-left: auto;
+}
+.m-r-auto {
+  margin-right: auto;
+}
+.m-x-auto {
+  margin-right: auto;
+  margin-left: auto;
+}
+@each $breakpoint, $value in $breakpoints-mb {
+  $infix: breakpoint-infix($breakpoint, $breakpoints-mb);
+  @include media-breakpoint-down($breakpoint, $breakpoints-mb) {
+    @each $i in $spacer-mb {
+      //margin
+      .m-t#{$infix}-#{$i} {
+        margin-top: #{$i}px;
+      }
+      .m-l#{$infix}-#{$i} {
+        margin-left: #{$i}px;
+      }
+      .m-r#{$infix}-#{$i} {
+        margin-right: #{$i}px;
+      }
+      .m-b#{$infix}-#{$i} {
+        margin-bottom: #{$i}px;
+      }
+
+      //margin-X
+      .m-x#{$infix}-#{$i} {
+        margin-left: #{$i}px;
+        margin-right: #{$i}px;
+      }
+
+      //margin-Y
+      .m-y#{$infix}-#{$i} {
+        margin-bottom: #{$i}px;
+        margin-top: #{$i}px;
+      }
+
+      //padding
+      .p-b#{$infix}-#{$i} {
+        padding-bottom: #{$i}px;
+      }
+      .p-r#{$infix}-#{$i} {
+        padding-right: #{$i}px;
+      }
+      .p-l#{$infix}-#{$i} {
+        padding-left: #{$i}px;
+      }
+      .p-t#{$infix}-#{$i} {
+        padding-top: #{$i}px;
+      }
+
+      //padding X
+      .p-x#{$infix}-#{$i} {
+        padding-right: #{$i}px;
+        padding-left: #{$i}px;
+      }
+
+      //padding Y
+      .p-y#{$infix}-#{$i} {
+        padding-top: #{$i}px;
+        padding-bottom: #{$i}px;
+      }
+    }
+  }
+}

@@ -1,0 +1,299 @@
+$radius: 8px;
+$selected: $primary-150;
+$color-default: $gray-600 !default;
+$color-selected: $primary-500;
+$spacer: 6px 40px;
+$none: none;
+.ui-tabs {
+  &-wrapper {
+    display: flex;
+    align-items: center;
+    background-color: $white-100;
+    border-radius: $radius;
+    overflow: hidden;
+    @include breakpoint("md") {
+      justify-content: center;
+    }
+  }
+  .control {
+    background: $white-100;
+    border: $none;
+    outline: $none;
+    @include font-ppc(14px, 500, 20px);
+    text-align: center;
+    color: $color-default;
+
+    padding: $spacer;
+
+    &[aria-selected="true"] {
+      background: $selected;
+      color: $color-selected;
+      border-radius: $radius;
+    }
+    @include breakpoint("md") {
+      padding: 0.6rem 2.6rem;
+    }
+  }
+}
+.ui-tab {
+  display: flex;
+  overflow: hidden;
+  &-item {
+    padding: 1rem;
+    position: relative;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &.active {
+      .label {
+        &-text {
+          font-weight: 500;
+        }
+      }
+    }
+    .label {
+      display: inline-flex;
+      align-items: center;
+      &-text {
+        @include font-ppc(1.6rem, 400, 2.4rem);
+        letter-spacing: 0.01em;
+      }
+      &-number {
+        @include flexCenter();
+        @include font-ppc(1.2rem, 500, 1.6rem);
+        width: 2rem;
+        height: 2rem;
+        background: #657384;
+        border-radius: 100rem;
+        color: $white-100;
+        text-align: center;
+        letter-spacing: 0.02em;
+      }
+      i {
+        font-size: 2rem;
+        color: #657384;
+      }
+    }
+  }
+  &-line {
+    border-bottom: 1px solid $gray-200;
+    .ui-tab-item {
+      flex: 1;
+      &:before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background: $primary-500;
+        transition: all 0.4s ease-in-out;
+      }
+      .label {
+        color: $gray-1000;
+      }
+      &.active {
+        &:before {
+          width: 100%;
+        }
+        .label {
+          &-number {
+            background: linear-gradient(
+              315deg,
+              $primary-500 14.64%,
+              $primary-400 85.36%
+            );
+          }
+          i {
+            color: $primary-500;
+          }
+        }
+      }
+      &:not(.active):hover:before {
+        width: 100%;
+      }
+    }
+  }
+
+  &-radius,
+  &-rounded {
+    .ui-tab-item {
+      transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+      padding: 0.6rem 1.2rem;
+      border-radius: 0.8rem;
+      margin-right: 1rem;
+      &.active,
+      &:hover {
+        background: $primary-500;
+        box-shadow: 0rem 0.1rem 0.4rem rgba(10, 10, 10, 0.15);
+        color: $white-100;
+        i {
+          color: $white-100;
+        }
+        .label-number {
+          background: $white-100;
+          color: $primary-500;
+        }
+      }
+    }
+  }
+  &-rounded {
+    .ui-tab-item {
+      border-radius: 100rem;
+    }
+  }
+  &-md {
+    .ui-tab-item {
+      padding: 0.6rem 1rem;
+    }
+    .label {
+      &-text {
+        @include font-ppc(1.4rem, 400, 2rem);
+      }
+    }
+  }
+  @media (max-width: 992px) {
+    .ui-tab-item {
+      padding: 0.6rem 1rem;
+    }
+    .label {
+      &-text {
+        @include font-ppc(1.4rem, 400, 2rem);
+      }
+    }
+  }
+}
+.ui-tab {
+  display: flex;
+  overflow: hidden;
+  &-item {
+    padding: 1rem;
+    position: relative;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &.active {
+      .label {
+        &-text {
+          font-weight: 500;
+        }
+      }
+    }
+    .label {
+      display: inline-flex;
+      align-items: center;
+      &-text {
+        @include font-ppc(1.6rem, 400, 2.4rem);
+        letter-spacing: 0.01em;
+      }
+      &-number {
+        @include flexCenter();
+        @include font-ppc(1.2rem, 500, 1.6rem);
+        width: 2rem;
+        height: 2rem;
+        background: #657384;
+        border-radius: 100rem;
+        color: $white-100;
+        text-align: center;
+        letter-spacing: 0.02em;
+      }
+      i {
+        font-size: 2rem;
+        color: #657384;
+      }
+    }
+  }
+  &-line {
+    border-bottom: 1px solid $gray-200;
+    .ui-tab-item {
+      flex: 1;
+      &:before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background: $primary-500;
+        transition: all 0.4s ease-in-out;
+      }
+      .label {
+        color: $gray-1000;
+      }
+      &.active {
+        &:before {
+          width: 100%;
+        }
+        .label {
+          &-number {
+            background: linear-gradient(
+              315deg,
+              $primary-500 14.64%,
+              $primary-400 85.36%
+            );
+          }
+          i {
+            color: $primary-500;
+          }
+        }
+      }
+      &:not(.active):hover:before {
+        width: 100%;
+      }
+    }
+  }
+
+  &-radius,
+  &-rounded {
+    .ui-tab-item {
+      transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+      padding: 0.6rem 1.2rem;
+      border-radius: 0.8rem;
+      margin-right: 1rem;
+      &.active,
+      &:hover {
+        background: $primary-500;
+        box-shadow: 0rem 0.1rem 0.4rem rgba(10, 10, 10, 0.15);
+        color: $white-100;
+        i {
+          color: $white-100;
+        }
+        .label-number {
+          background: $white-100;
+          color: $primary-500;
+        }
+      }
+    }
+  }
+  &-rounded {
+    .ui-tab-item {
+      border-radius: 100rem;
+    }
+  }
+  &-md {
+    .ui-tab-item {
+      padding: 0.6rem 1rem;
+    }
+    .label {
+      &-text {
+        @include font-ppc(1.4rem, 400, 2rem);
+      }
+    }
+  }
+  @media (max-width: 992px) {
+    .ui-tab-item {
+      padding: 0.6rem 1rem;
+    }
+    .label {
+      &-text {
+        @include font-ppc(1.4rem, 400, 2rem);
+      }
+    }
+  }
+}

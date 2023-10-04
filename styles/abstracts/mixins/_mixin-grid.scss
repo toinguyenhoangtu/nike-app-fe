@@ -1,0 +1,161 @@
+//$container-max-widths return $key tương ứng với key $grid-breakpoints
+//    >> breakpoint-max(md, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+//    767.98px
+@function breakpoint-max($name, $breakpoints: $grid-breakpoints) {
+  $max: map-get($breakpoints, $name);
+  // @debug $max;
+  @return if($max > 0, $max, null);
+}
+
+//mixin media breakpoint width (max-width:....)
+@mixin media-breakpoint-down($name, $breakpoints: $grid-breakpoints) {
+  $max: breakpoint-max($name, $breakpoints); //   767.98px
+  @if $max {
+    @media (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+//    >> breakpoint-infix(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+//    "-sm"
+@function breakpoint-infix($name, $breakpoints: $grid-breakpoints) {
+  @return if(breakpoint-max($name, $breakpoints) == null, "", "-#{$name}");
+}
+
+//mixin max-width container
+@mixin make-container-max-widths(
+  $max-widths: $container-max-widths,
+  $breakpoints: $grid-breakpoints
+) {
+  // @debug $max-widths;
+  // @debug $breakpoints;
+  @each $breakpoint, $value-max-width in $max-widths {
+    // @debug $breakpoint;
+    // @debug $value-max-width;
+    @include media-breakpoint-down($breakpoint, $breakpoints) {
+      max-width: $value-max-width;
+    }
+  }
+}
+
+//Grid system
+//
+//Generate semantic grid columns with these mixins.
+
+@mixin max-container() {
+  width: 100%;
+  max-width: 1240px;
+  padding-right: $container-padding-x;
+  padding-left: $container-padding-x;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@mixin containerMb() {
+  width: 100%;
+  max-width: 100%;
+  // padding: 0 8px !important;
+}
+
+@mixin make-row() {
+  //row
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: ($grid-gutter-width / -2);
+  margin-left: ($grid-gutter-width / -2);
+}
+
+@mixin make-col-auto() {
+  flex: 0 0 auto;
+  width: auto;
+}
+
+@mixin make-col-columns($count) {
+  flex: 0 0 calc(100% / #{$count});
+  width: calc(100% / #{$count});
+}
+@mixin make-col($size, $columns: $grid-columns) {
+  flex: 0 0 percentage($size / $columns);
+  max-width: percentage($size / $columns);
+}
+@mixin row-cols($count) {
+  > * {
+    flex: 0 0 auto;
+    width: 100% / $count;
+  }
+}
+@mixin make-grid-columns(
+  $columns: $grid-columns,
+  $gutter: $grid-gutter-width,
+  $breakpoints: $grid-breakpoints,
+  $breakpoints-respon: $grid-breakpoints-mb
+) {
+  //default
+  .grid-column {
+    position: relative;
+    width: 100%;
+    padding-right: $gutter / 2;
+    padding-left: $gutter / 2;
+  }
+  @each $breakpoint, $value in map-keys($breakpoints) {
+    //variable $infix return -xxl, -xl,-lg,-md,-sm,-xs
+    // @debug $breakpoint;
+    $infix: breakpoint-infix($breakpoint, $breakpoints);
+    // $infix-mb: breakpoint-infix($breakpoint, $grid-breakpoints-mb);
+    // @debug $breakpoint;
+    @if $columns > 0 {
+      @for $i from 1 through $columns {
+        .g-col#{$infix}-#{$i} {
+          @extend .grid-column;
+        }
+      }
+    }
+
+    .g-col#{$infix},
+    .g-col#{$infix}-auto,
+    .row [class*="g-col-"] {
+      @extend .grid-column;
+    }
+
+    //responsove col
+    @include media-breakpoint-down($breakpoint, $breakpoints) {
+      // @debug $breakpoint;
+      .g-col#{$infix} {
+        flex-basis: 0;
+        flex-grow: 1;
+        max-width: 100%;
+      }
+
+      @if $columns > 0 {
+        //1-12 col in columns %
+        @for $i from 1 through 12 {
+          .row-cols#{$infix}-#{$i} {
+            @include row-cols($i); // $i/$columns
+          }
+        }
+
+        //1-12
+        @for $i from 1 through $columns {
+          .g-col#{$infix}-#{$i} {
+            @include make-col($i, $columns); // $i/$columns
+          }
+        }
+
+        @for $i from 1 through $columns {
+          .g-col#{$infix}-#{$i}-of-1 {
+            flex: 0 0 calc(100% / #{$i});
+            max-width: calc(100% / #{$i}); // $i/$columns
+          }
+        }
+      }
+
+      //
+      .g-col#{$infix}-auto {
+        @include make-col-auto();
+      }
+    }
+  }
+}

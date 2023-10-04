@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { CategoryData } from "types/categories";
-import { Product } from "types/product";
 import { filterCategory, getAllCategories } from "@services/category/category";
 import Wrapper from "@components/Wrapper/Wrapper";
 import BreardCumb from "@components/BreardCumb/BreardCumb";
@@ -12,15 +11,16 @@ import type {
   GetStaticPropsContext
 } from 'next'
 import {
-  useProductFilter,
-  useProductFilterPage,
+  ProductFilter,
+  ProductFilterPage,
 } from "@services/product/product";
 import LayoutTransition from "@components/LayoutTransition/LayoutTransition";
+import { NKResponse } from "types/product";
 
 const maxResult = 3;
 type IProp = {
   category: CategoryData;
-  products: Product;
+  products: NKResponse.CMS.Product;
   slug: string;
 };
 
@@ -30,14 +30,14 @@ export const getStaticProps: GetStaticProps = async (context: GetStaticPropsCont
     if (!params) {
       throw new Error('Params are undefined');
     }
-    const { slug } = params;
-    const category = await filterCategory(slug as string); // Assuming filterCategory expects a string
-    const products = await useProductFilterPage(slug as string, maxResult); // Assuming useProductFilterPage expects a string and a number
+    const slug = params.slug as string;
+    const category = await filterCategory(slug); // Assuming filterCategory expects a string
+    const products = await ProductFilterPage(slug, maxResult); // Assuming useProductFilterPage expects a string and a number
     return {
       props: {
         category,
         products,
-        slug: slug as string,
+        slug,
       },
       revalidate: 60 * 10,
     };
@@ -48,14 +48,14 @@ export const getStaticProps: GetStaticProps = async (context: GetStaticPropsCont
       },
     };
   }
-}
+};
 
 export const getStaticPaths: GetStaticPaths = async () => {
   try {
     const categories = await getAllCategories(); // Assuming this function exists
-    const paths = categories?.data?.map((c) => ({
+    const paths = categories?.data?.map((category) => ({
       params: {
-        slug: c.attributes?.slug || "", // Assuming slug is a string
+        slug: category.attributes?.slug || "", // Assuming slug is a string
       },
     }));
 
@@ -75,7 +75,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export default function Category({ category, products, slug }: IProp) {
   const [pageIndex, setPageIndex] = useState<number>(1);
   const { query } = useRouter();
-  const { response, error, isLoading } = useProductFilter(
+  const { response, error, isLoading } = ProductFilter(
     slug,
     pageIndex,
     maxResult,
@@ -100,8 +100,8 @@ export default function Category({ category, products, slug }: IProp) {
               {category?.data?.[0]?.attributes?.name}
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-14 px-5 md:px-0">
-              {response?.data.map((p) => (
-                <ProductCart key={p.id} {...p} />
+              {response?.data.map((product) => (
+                <ProductCart key={product.id} {...product} />
               ))}
             </div>
             {response?.meta?.pagination?.total > maxResult && (

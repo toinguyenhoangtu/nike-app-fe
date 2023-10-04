@@ -1,0 +1,58 @@
+.ui-list-group {
+  display: list-item;
+  padding-left: 2rem;
+  li {
+    @include font-ppc(1.6rem, 400, 2.4rem);
+    color: #4a4f63;
+    padding-bottom: 0.8rem;
+    @include breakpoint("md") {
+      @include font-ppc(1.4rem, 400, 2rem);
+    }
+  }
+  &.ui-list-small {
+    padding-left: 1.6rem;
+    li {
+      @include font-ppc(1.4rem, 400, 2rem);
+    }
+  }
+  &.ui-list-number {
+    li {
+      list-style-type: decimal;
+    }
+  }
+  &.ui-list-icon {
+    padding: 0;
+    li {
+      position: relative;
+      padding-left: 1.3rem;
+      &:before {
+        content: "•";
+        position: absolute;
+        top: 0.1rem;
+        left: 0;
+        color: #657384;
+        line-height: 100%;
+        font-size: 2.4rem;
+        line-height: 2rem;
+        @include breakpoint("md") {
+          font-size: 2rem;
+          line-height: 1.6rem;
+        }
+      }
+    }
+    &.ui-list-small {
+      li {
+        padding-left: 1rem;
+        &:before {
+          font-size: 2rem;
+          line-height: 1.6rem;
+        }
+      }
+    }
+  }
+  &.ui-list-text {
+    li {
+      list-style-type: lower-alpha;
+    }
+  }
+}

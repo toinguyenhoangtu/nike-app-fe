@@ -1,8 +1,8 @@
 import { getDiscountedPricePercentage } from '@helpers/promotion'
 import Link from 'next/link'
 import React from 'react'
-import { ProductData } from 'types/product'
-const ProductCart = (props: ProductData) => {
+import { NKResponse } from 'types/product'
+const ProductCart = (props: NKResponse.CMS.ProductData) => {
     const { attributes } = props;
     if (!attributes) return null;
     return (

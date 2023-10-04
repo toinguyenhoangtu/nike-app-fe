@@ -1,0 +1,25 @@
+@import "./abstracts/_index";
+
+// @import './layout/_reboot';
+@import "./abstracts/utilities/flex";
+
+@import "./components/index";
+@import "./components/_button";
+@import "./components/_text-area";
+@import "./components/_toggle";
+@import "./components/list";
+@import "./abstracts/fonts";
+
+#__next {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+}
+.swiper {
+  @include breakpoint("md") {
+    [class*="swiper-button"] {
+      display: none;
+    }
+  }
+  .swiper-pagination-bullet-active {
+    background-color: #657384 !important;
+  }
+}

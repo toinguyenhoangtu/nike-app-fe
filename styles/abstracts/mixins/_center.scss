@@ -1,0 +1,31 @@
+@mixin flexCenter($default: flex) {
+  display: $default;
+  align-items: center;
+  justify-content: center;
+}
+@mixin flexBetween() {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@mixin inlineFlexCenter() {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+@mixin centerAbsolute($direction: "both") {
+  position: absolute;
+  @if $direction == "both" {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  @if $direction == "left" {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  @if $direction == "top" {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}

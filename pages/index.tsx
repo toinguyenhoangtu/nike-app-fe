@@ -3,10 +3,10 @@ import ProductCart from "@components/ProductCart/ProductCart";
 import Wrapper from "@components/Wrapper/Wrapper";
 import { getAllProduct } from "@services/product/product";
 import { GetStaticProps } from "next";
-import { Product } from "types/product";
+import { NKResponse } from "types/product";
 
 type THomePageProps = {
-  products: Product
+  products: NKResponse.CMS.Product
 }
 
 export const getStaticProps: GetStaticProps = async () => {

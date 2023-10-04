@@ -1,0 +1,102 @@
+$color-error: #d92d20;
+$color-ic: #f04438;
+$alert-border-color: #d92d20;
+$bg-error: #fef3f2;
+
+$color-warning: #dc6803;
+$color-ic-warning: #f79009;
+.ui-alert {
+  display: inline-flex;
+  &.error {
+    display: none;
+    align-items: center;
+    margin-top: 0.8rem;
+    [class*="fa"] {
+      color: $color-ic;
+      font-size: 2rem;
+    }
+    .text {
+      color: $color-error;
+      margin-left: 0.4rem;
+      @include font-ppc(1.4rem, 400, 2rem);
+    }
+  }
+  &.warning {
+    display: inline-flex;
+    align-items: baseline;
+    margin-top: 0.8rem;
+    i {
+      color: $color-ic-warning !important;
+      @include font-ppc(1.5rem, 500, 1.5rem);
+      margin-top: 0.4rem;
+      transform: translateY(2px);
+    }
+    .text {
+      @include font-ppc(1.3rem, 500, 1.8rem);
+      color: $color-warning !important;
+      margin-left: 0.4rem;
+    }
+  }
+  &.messenger {
+    color: $primary-500 !important;
+    @include font-ppc(1.3rem, 500, 1.8rem);
+    margin-top: 0.2rem;
+    @include breakpoint("md") {
+      margin: 0.4rem 0;
+      padding-bottom: 2rem;
+    }
+  }
+}
+
+.isInvalid {
+  input[type="text"] {
+    box-shadow: 0 0 0 1px $alert-border-color !important;
+    background: $bg-error !important;
+  }
+  .button {
+    background: $bg-error !important;
+    &::before {
+      box-shadow: 0 0 0 1px $alert-border-color !important;
+    }
+  }
+  .ui-alert {
+    display: inline-flex;
+  }
+}
+.text-field {
+  &.isInvalid {
+    flex-direction: column;
+  }
+}
+.gradient {
+  background: linear-gradient(358.69deg, #bbcef4 -224.09%, #dfe7fb 111.69%);
+  border-radius: 8px;
+  margin-bottom: 1.6rem;
+  padding: 9px 2px 0;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  .fa-icon {
+    max-width: 65px;
+  }
+  .text {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.01em;
+    color: #1250dc;
+    margin-left: 0.5rem;
+    flex: 1;
+    margin-top: -0.8rem;
+  }
+  @include breakpoint("md") {
+    margin-bottom: 6rem;
+    padding: 6px 16px 0 0.7rem;
+  }
+  @media (max-width: 360px) {
+    .text {
+      font-size: 1.2rem;
+      margin-top: -0.4rem;
+    }
+  }
+}

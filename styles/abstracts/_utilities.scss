@@ -1,0 +1,18 @@
+// @import 'utilities/_txt-color';
+// @import 'utilities/_background';
+// @import 'utilities/_flex';
+// @import 'utilities/_position';
+// @import 'utilities/_display';
+// @import 'utilities/_float';
+
+.circle {
+  border-radius: 62.5rem !important;
+}
+@include breakpoint("md") {
+  .circle-mb {
+    border-radius: 62.5rem;
+  }
+}
+.overflow-hidden {
+  overflow: hidden;
+}
