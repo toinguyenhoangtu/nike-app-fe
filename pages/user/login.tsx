@@ -22,7 +22,7 @@ const login = () => {
             })
 
             if (!response.ok) {
-                throw new Error('Failed to submit the data!, Nhập lại mày.')
+                throw new Error('Failed to submit the data!')
             }
         } catch (error) {
             console.error(error)

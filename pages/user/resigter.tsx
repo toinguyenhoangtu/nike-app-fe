@@ -25,9 +25,7 @@ const resigter = () => {
             toast.error('Confirm password not matching !!!');
             return;
         };
-
         setIsLoading(true);
-        
         try {
             await submitLogin(formData);
             toast.success('Create account successfully !!')
