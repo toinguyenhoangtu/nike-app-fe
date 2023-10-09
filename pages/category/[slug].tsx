@@ -16,6 +16,7 @@ import {
 } from "@services/product/product";
 import LayoutTransition from "@components/LayoutTransition/LayoutTransition";
 import { NKResponse } from "types/product";
+import Breadscrumb,{RouteItem} from "@components/BreadscrumbV2";
 
 const maxResult = 3;
 type IProp = {
@@ -26,13 +27,15 @@ type IProp = {
 
 export const getStaticProps: GetStaticProps = async (context: GetStaticPropsContext) => {
   try {
-    const { params } = context;
+    const { params } = context;  
     if (!params) {
       throw new Error('Params are undefined');
     }
     const slug = params.slug as string;
-    const category = await filterCategory(slug); // Assuming filterCategory expects a string
-    const products = await ProductFilterPage(slug, maxResult); // Assuming useProductFilterPage expects a string and a number
+    console.log('slug: ' + slug);
+    
+    const category = await filterCategory(slug);
+    const products = await ProductFilterPage(slug, maxResult);
     return {
       props: {
         category,
@@ -52,10 +55,10 @@ export const getStaticProps: GetStaticProps = async (context: GetStaticPropsCont
 
 export const getStaticPaths: GetStaticPaths = async () => {
   try {
-    const categories = await getAllCategories(); // Assuming this function exists
+    const categories = await getAllCategories();
     const paths = categories?.data?.map((category) => ({
       params: {
-        slug: category.attributes?.slug || "", // Assuming slug is a string
+        slug: category.attributes?.slug || "",
       },
     }));
 
@@ -74,13 +77,24 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export default function Category({ category, products, slug }: IProp) {
   const [pageIndex, setPageIndex] = useState<number>(1);
-  const { query } = useRouter();
+  const router = useRouter();
+  const query = router.query.slug;
   const { response, error, isLoading } = ProductFilter(
     slug,
     pageIndex,
     maxResult,
     products
   );
+
+    console.log(category,products);
+    
+
+  const breadScrumbList: RouteItem[] = [
+    {
+      title: 'Jordan',
+      slug:''
+    }
+  ]
 
   useEffect(() => {
     setPageIndex(1);
@@ -90,10 +104,10 @@ export default function Category({ category, products, slug }: IProp) {
   if (!response || response.meta.pagination == undefined) return null;
 
   return (
-
     <div className="w-full md:py-10 relative">
       <Wrapper>
-        <BreardCumb cateName={category} />
+        {/* <BreardCumb cateName={category} productData={products} /> */}
+        <Breadscrumb routes={breadScrumbList}/>
         <LayoutTransition>
           <div className="text-center max-w-[800px] mx-auto mt-8 md:mt-0">
             <div className="text-[28px] md:text-[34px] mb-5 font-semibold leading-tight">

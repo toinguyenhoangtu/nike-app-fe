@@ -1,4 +1,4 @@
-import { STRAPI_API_TOKEN, API_URL } from "../utils/util";
+import { STRAPI_API_TOKEN, API_URL } from "../utils/Utils";
 import { HTTP_METHOD, HTTP_STATUS } from "../../enums/HTTP";
 
 export const fetchDataFromApi = async (enpoint: string) => {

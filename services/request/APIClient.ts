@@ -1,7 +1,7 @@
 
 import { HTTP_METHOD } from "@enums/HTTP";
 import axios, { AxiosError, AxiosRequestConfig, AxiosResponse, Method } from "axios";
-import { STRAPI_API_TOKEN } from "pages/utils/util";
+import { STRAPI_API_TOKEN } from "pages/utils/Utils";
 
 const instanceAxios = axios.create({
     method: HTTP_METHOD.GET,

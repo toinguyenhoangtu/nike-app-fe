@@ -1,11 +1,11 @@
 import React from 'react'
-import { Product } from 'types/product'
+import { NKResponse } from 'types/product'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import ProductCart from '@components/ProductCart/ProductCart';
 
 type Iprop = {
-    products: Product
+    products: NKResponse.CMS.Product
 }
 
 const RelativedProduct = ({ products }: Iprop) => {

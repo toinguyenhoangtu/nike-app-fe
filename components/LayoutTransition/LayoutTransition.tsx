@@ -15,7 +15,6 @@ const LayoutTransition = ({
     const lastPageRef = useRef<HTMLCollection | null>(null);
     const currentPageRef = useRef<HTMLDivElement>(null);
     const exitAnimationDivRef = useRef<HTMLDivElement>(null);
-    console.log('pathname', pathname);
 
     useEffect(() => {
         if (!currentPageRef.current) return;

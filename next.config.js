@@ -10,6 +10,13 @@ const nextConfig = {
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")],
   },
+
+  async rewrites () {
+    return [{
+      source: '/:slug',
+      destination: '/category/:slug'
+    }]
+  }
 }
 
 module.exports = nextConfig

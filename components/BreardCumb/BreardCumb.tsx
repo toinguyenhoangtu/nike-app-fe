@@ -1,12 +1,14 @@
-import { Product } from "types/product";
+import { NKResponse } from "types/product";
 import Link from 'next/link';
 import { CategoryData } from "types/categories";
 
-type IProp = {
-    props?: Product;
-    cateName?: CategoryData;
+type BreardCumbProps = {
+    productData?: Pick<NKResponse.CMS.Product,'data'>;
+    cateName?: Pick<CategoryData,'data'>;
 };
-const BreardCumb = ({ props, cateName }: IProp) => {
+const BreardCumb = ({ productData, cateName }: BreardCumbProps) => {    
+    console.log('productData', productData);
+    
     return (
         <div className="md:pb-5">
             <nav className="flex" aria-label="Breadcrumb">
@@ -18,7 +20,7 @@ const BreardCumb = ({ props, cateName }: IProp) => {
                         </a>
                     </li>
                     {
-                        cateName && cateName?.data?.map(cateName => (
+                      cateName?.data?.map(cateName => (
                             <li key={cateName.id} aria-current="page">
                                 <div className="flex items-center">
                                     <svg aria-hidden="true"
@@ -33,7 +35,7 @@ const BreardCumb = ({ props, cateName }: IProp) => {
                     }
 
                     {
-                        props?.data?.map((cate, index, array) => (
+                        productData?.data?.map((cate, index, array) => (
                             <li key={index} aria-current="page">
                                 {
                                     index + 1 === array.length && (

@@ -1,4 +1,4 @@
-import { API_URL } from "pages/utils/util"
+import { API_URL } from "pages/utils/Utils"
 import { HTTP_METHOD } from "@enums/HTTP"
 import APIClient from "@services/request/APIClient"
 import { CategoryData } from "types/categories"
