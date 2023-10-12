@@ -7,21 +7,17 @@ import { DataCategory } from "types/categories";
 import { VscChromeClose } from "react-icons/vsc";
 import { RxAvatar } from 'react-icons/rx'
 import { BiMenuAltRight } from "react-icons/bi";
-
-
 const data = [
   { id: 1, name: "Home", url: "/" },
   { id: 2, name: "About", url: "/about" },
   { id: 3, name: "Categories", subMenu: true },
   { id: 4, name: "Contact", url: "/contact" },
 ];
-
-const Header = (): JSX.Element => {
+const Header = () => {
   const [mobileMenu, setMobileMenu] = useState<boolean>(false);
   const [cateItemMb, setCateItemMb] = useState<boolean>(false);
-
   const [show, setShow] = useState<string>("translate-y-0");
-
+  const [userName, setUserName] = useState<any>('');
   const [showCatMenu, setShowCatMenu] = useState<boolean>(false);
   const [lastScrollY, setLastScrollY] = useState<number>(0);
   const [category, setCategory] = useState<DataCategory[]>([]);
@@ -57,8 +53,18 @@ const Header = (): JSX.Element => {
     fetchData();
   }, []);
 
-  /** Render MenuCate */
+  // useEffect(() => {
+  //   const fillDataUser = () => {
+  //     if (typeof window !== "undefined") {
+  //       const userName = localStorage.getItem('NikeUser');
+  //       return userName
+  //     }
+  //   }
+  //   const data = fillDataUser();
+  //   setUserName(data)
+  // }, []);
 
+  /** Render MenuCate */
   const renderMenu = () => {
 
     if (!Array.isArray(data) || data.length === 0) return null;
@@ -178,18 +184,56 @@ const Header = (): JSX.Element => {
         <div className="flex items-center gap-2 text-black">
           {/* Icon start */}
           <ul>
-            <li>
-              <Link
-                href={'/user/login'}
-                className="w-[40px] md:w-[60px] h-8 md:h-12 rounded-md flex justify-center items-center hover:bg-black/[0.05] transition-all "
-              >
-                <div className="w-8 md:w-12 h-8 md:h-12 flex justify-center items-center">
-                  <RxAvatar className="text-[19px] md:text-[24px]" />
-                </div>
-                {/* <div className="w-8 md:w-12 h-8 md:h-12 text-[14px]  flex justify-center items-center md:text-[14px]">Tú</div> */}
-              </Link>
-            </li>
+            {
+              // userName ? (
+              //   <div>
+              //     <div id="dropdownDefaultButton" data-dropdown-toggle="dropdown" className="text-black focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-blue-800">{userName}<svg className="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+              //       <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="m1 1 4 4 4-4" />
+              //     </svg>
+              //     </div>
+              //     {/* Dropdown menu */}
+              //     <div id="dropdown" className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+              //       <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+              //         <li>
+              //           <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+              //         </li>
+              //         <li>
+              //           <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+              //         </li>
+              //         <li>
+              //           <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+              //         </li>
+              //         <li>
+              //           <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a>
+              //         </li>
+              //       </ul>
+              //     </div>
+              //   </div>
 
+
+              // ) : (
+              //   <li>
+              //     <Link
+              //       href={'/user/login'}
+              //       className="w-[40px] md:w-[60px] h-8 md:h-12 rounded-md flex justify-center items-center hover:bg-black/[0.05] transition-all "
+              //     >
+              //       <div className="w-8 md:w-12 h-8 md:h-12 flex justify-center items-center">
+              //         <RxAvatar className="text-[19px] md:text-[24px]" />
+              //       </div>
+              //       {/* <div className="w-8 md:w-12 h-8 md:h-12 text-[14px]  flex justify-center items-center md:text-[14px]">Tú</div> */}
+              //     </Link>
+              //   </li>
+              // )
+            }
+            <Link
+              href={'/user/login'}
+              className="w-[40px] md:w-[60px] h-8 md:h-12 rounded-md flex justify-center items-center hover:bg-black/[0.05] transition-all "
+            >
+              <div className="w-8 md:w-12 h-8 md:h-12 flex justify-center items-center">
+                <RxAvatar className="text-[19px] md:text-[24px]" />
+              </div>
+              {/* <div className="w-8 md:w-12 h-8 md:h-12 text-[14px]  flex justify-center items-center md:text-[14px]">Tú</div> */}
+            </Link>
           </ul>
           {/* Icon end */}
           <div className="w-8 md:w-12 h-8 md:h-12 rounded-full flex md:hidden justify-center items-center hover:bg-black/[0.05] cursor-pointer relative -mr-2">

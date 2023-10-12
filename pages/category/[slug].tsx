@@ -16,9 +16,10 @@ import {
 } from "@services/product/product";
 import LayoutTransition from "@components/LayoutTransition/LayoutTransition";
 import { NKResponse } from "types/product";
-import Breadscrumb,{RouteItem} from "@components/BreadscrumbV2";
+import Breadscrumb, { RouteItem } from "@components/BreadscrumbV2";
 
 const maxResult = 3;
+
 type IProp = {
   category: CategoryData;
   products: NKResponse.CMS.Product;
@@ -27,13 +28,13 @@ type IProp = {
 
 export const getStaticProps: GetStaticProps = async (context: GetStaticPropsContext) => {
   try {
-    const { params } = context;  
+    const { params } = context;
     if (!params) {
       throw new Error('Params are undefined');
     }
     const slug = params.slug as string;
     console.log('slug: ' + slug);
-    
+
     const category = await filterCategory(slug);
     const products = await ProductFilterPage(slug, maxResult);
     return {
@@ -74,7 +75,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 };
 
-
 export default function Category({ category, products, slug }: IProp) {
   const [pageIndex, setPageIndex] = useState<number>(1);
   const router = useRouter();
@@ -85,14 +85,10 @@ export default function Category({ category, products, slug }: IProp) {
     maxResult,
     products
   );
-
-    console.log(category,products);
-    
-
   const breadScrumbList: RouteItem[] = [
     {
-      title: 'Jordan',
-      slug:''
+      title: query,
+      slug: ''
     }
   ]
 
@@ -107,7 +103,7 @@ export default function Category({ category, products, slug }: IProp) {
     <div className="w-full md:py-10 relative">
       <Wrapper>
         {/* <BreardCumb cateName={category} productData={products} /> */}
-        <Breadscrumb routes={breadScrumbList}/>
+        <Breadscrumb routes={breadScrumbList} />
         <LayoutTransition>
           <div className="text-center max-w-[800px] mx-auto mt-8 md:mt-0">
             <div className="text-[28px] md:text-[34px] mb-5 font-semibold leading-tight">

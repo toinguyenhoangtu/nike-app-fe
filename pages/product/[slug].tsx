@@ -1,22 +1,33 @@
 import { fetchProductEqual, fetchProductNotEqual, getAllProduct } from "@services/product/product";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ToastContainer } from "react-toastify";
-import { NKResponse } from "types/product";
 import 'react-toastify/dist/ReactToastify.css';
 import Wrapper from "@components/Wrapper/Wrapper";
-import BreardCumb from "@components/BreardCumb/BreardCumb";
 import ProductDetailsCarousel from "@components/ProductDetailsCarousel/ProductDetailsCarousel";
 import { getDiscountedPricePercentage } from "@helpers/promotion";
 import RelativedProduct from "@components/RelativedProduct/RelativedProduct";
 import LayoutTransition from "@components/LayoutTransition/LayoutTransition";
-
+import Breadscrumb, { RouteItem } from "@components/BreadscrumbV2";
+import { useDispatch } from "react-redux";
+import { NKResponse } from "types/product";
+import { addToCart } from "@redux/cart";
 type IProp = {
     product: NKResponse.CMS.Product;
     products: NKResponse.CMS.Product;
     slug: string;
 };
-
+const initalState: NKResponseCart.CartItem = {
+    id: 0,
+    attributes: {
+        name: '',
+        price: 0,
+        createdAt: '',
+        updatedAt: '',
+    },
+    quantity: 0,
+    oneQuantityPrice: 0
+};
 export async function getStaticPaths() {
     try {
         const products = await getAllProduct();
@@ -39,7 +50,6 @@ export async function getStaticPaths() {
         };
     }
 }
-
 export async function getStaticProps({ params: { slug } }: any) {
     try {
         const [product, products] = await Promise.all([
@@ -62,29 +72,58 @@ export async function getStaticProps({ params: { slug } }: any) {
         };
     }
 }
-
 export default function ProductDetail({ product, products }: IProp) {
-    const { query } = useRouter();
+    const router = useRouter();
+    const query = router.query.slug;
     const [selectedSize, setSelectedSize] = useState<string>('');
     const [showError, setShowError] = useState<boolean>(false);
+    const [dataSubmit, setDataSubmit] = useState(initalState);
     const attr = product?.data?.[0]?.attributes?.categories;
     const data = product?.data?.[0]?.attributes;
+    const getIDProduct = product?.data?.[0].id
+
     if (!data && attr) return null;
+    const breadScrumbList: RouteItem[] = [
+        {
+            title: query,
+            slug: ''
+        }
+    ];
+    const dispatch = useDispatch();
+    const handlerDispatch = async (event: React.MouseEvent) => {
+        event.preventDefault()
+        if (!selectedSize) {
+            setShowError(true);
+            document.getElementById("scrollTo")?.scrollIntoView({
+                block: 'center',
+                behavior: 'smooth'
+            });
+        }
+        const addDataCart = await dispatch(
+            addToCart(
+                {
+                    ...dataSubmit,
+                    id: getIDProduct,
+                    selectedSize,
+                    oneQuantityPrice: data.price,
+                }
+            ))
+
+    }
+
     useEffect(() => {
         setSelectedSize('')
         return () => setSelectedSize('');
-    }, [query])
+    }, [router])
     return (
         <div className="w-full md:py-10">
             <ToastContainer />
             <Wrapper>
-                <BreardCumb props={product} cateName={attr} />
+                <Breadscrumb routes={breadScrumbList} />
                 <LayoutTransition>
                     <div className="flex flex-col lg:flex-row md:px-10 gap-[50px] lg:gap-[100px]">
                         <div className="w-full md:w-auto flex-[1.5] max-w-[500px] lg:max-w-full mx-auto lg:mx-0">
-                            {
-                                <ProductDetailsCarousel data={product} />
-                            }
+                            <ProductDetailsCarousel data={product} />
                         </div>
                         <form className="flex-[1] py-3">
                             <div className="text-[28px] font-semibold mb-2 leading-tight">
@@ -164,6 +203,24 @@ export default function ProductDetail({ product, products }: IProp) {
                                         ))
                                     }
                                 </div>
+                                {/* SIZE END */}
+
+                                {/* SHOW ERROR START */}
+                                {
+                                    showError && (
+                                        <div className="text-red-600 mt-1">
+                                            Size selection is required
+                                        </div>
+                                    )
+                                }
+                                {/* PRODUCT SIZE RANGE END */}
+
+                                {/* ADD TO CART BUTTON START */}
+                                <button className="w-full py-4 rounded-full bg-black text-white text-lg font-medium  transition active:scale-95 mb-3 mt-3 hover:opacity-75 ease-out"
+                                    onClick={(event) => handlerDispatch(event)}
+                                >
+                                    Add to Cart
+                                </button>
                             </div>
                         </form>
                     </div>

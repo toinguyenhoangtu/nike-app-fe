@@ -1,7 +1,6 @@
 import Wrapper from "@components/Wrapper/Wrapper"
-import { submitLogin } from "@services/user/user";
+import { submitRegister } from "@services/user/user";
 import Link from "next/link"
-import { API_URL } from "pages/utils/Utils";
 import { useState } from "react"
 import { ToastContainer, toast } from "react-toastify";
 import { useRouter } from 'next/router'
@@ -27,7 +26,7 @@ const resigter = () => {
         };
         setIsLoading(true);
         try {
-            await submitLogin(formData);
+            await submitRegister(formData);
             toast.success('Create account successfully !!')
             router.push('/')
         } catch (error: any) {
@@ -36,8 +35,6 @@ const resigter = () => {
             setIsLoading(false);
         }
     }
-
-
     return (
         <Wrapper>
             <ToastContainer />
@@ -117,10 +114,7 @@ const resigter = () => {
                     </div>
                 </div>
             </div>
-
-
         </Wrapper>
-
     )
 }
 

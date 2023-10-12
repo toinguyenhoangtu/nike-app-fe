@@ -1,18 +1,18 @@
 import { CategoryData } from "./categories";
 
-declare module NKResponse.CMS {
+declare namespace NKResponse.CMS {
 
-    export type Product = {
+    interface Product {
         data: ProductData[];
         meta: Meta;
     }
 
-    export type ProductData = {
+    interface ProductData {
         id: number;
         attributes: Attributes;
     }
 
-    export type Attributes = {
+    interface Attributes {
         categories: CategoryData
         name: string;
         subtitle?: string;
@@ -34,11 +34,11 @@ declare module NKResponse.CMS {
         thumbnail: Thumbnail;
     }
 
-    export type Size = {
+    interface Size {
         data: SizeData;
     }
 
-    export type Image = {
+    interface Image {
         data: {
             id: number;
             attributes: {
@@ -127,23 +127,23 @@ declare module NKResponse.CMS {
 
     }
 
-    export type SizeData = {
+    interface SizeData {
         size?: string;
         enabled?: boolean;
     }
 
-    export type Meta = {
+    interface Meta {
         pagination?: Pagination;
     }
 
-    export type Pagination = {
+    interface Pagination {
         page?: number;
         pageSize?: number;
         pageCount?: number;
         total: number;
     }
 
-    type Thumbnail = {
+    interface Thumbnail {
         data: {
             id: number;
             attributes: {

@@ -29,7 +29,7 @@ const LayoutTransition = ({
 
     return (
         <AnimatePresence initial={false}>
-            <div>
+            <div className="md:py-10">
                 <motion.div
                     key={pathname + "exit-animation"}
                     style={{

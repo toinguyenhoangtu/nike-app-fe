@@ -5,7 +5,7 @@ import { ReactNode } from 'react'
 import Head from "next/head"
 import Layout from "@components/Layout/Layout"
 import NextNProgress from 'nextjs-progressbar';
-import { store } from 'redux/store'
+import { store } from 'redux/store/store'
 export default function App({ Component, pageProps }: AppProps): ReactNode {
   return (
     <>
