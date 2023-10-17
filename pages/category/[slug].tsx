@@ -5,6 +5,8 @@ import { filterCategory, getAllCategories } from "@services/category/category";
 import Wrapper from "@components/Wrapper/Wrapper";
 import BreardCumb from "@components/BreardCumb/BreardCumb";
 import ProductCart from "@components/ProductCart/ProductCart";
+import { Pagination } from "antd";
+
 import type {
   GetStaticPaths,
   GetStaticProps,
@@ -77,6 +79,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export default function Category({ category, products, slug }: IProp) {
   const [pageIndex, setPageIndex] = useState<number>(1);
+
   const router = useRouter();
   const query = router.query.slug;
   const { response, error, isLoading } = ProductFilter(
@@ -98,7 +101,8 @@ export default function Category({ category, products, slug }: IProp) {
 
   if (!response || response.data?.length <= 0) return null;
   if (!response || response.meta.pagination == undefined) return null;
-
+  
+  const { total } = response.meta.pagination;
   return (
     <div className="w-full md:py-10 relative">
       <Wrapper>
@@ -115,26 +119,32 @@ export default function Category({ category, products, slug }: IProp) {
               ))}
             </div>
             {response?.meta?.pagination?.total > maxResult && (
-              <div className="flex gap-3 items-center justify-center my-16 md:my-0">
-                <button
-                  className="rounded py-2 px-4 bg-black text-white disabled:bg-gray-200 disabled:text-gray-500"
-                  disabled={pageIndex === 1}
-                  onClick={() => setPageIndex(pageIndex - 1)}
-                >
-                  Previous
-                </button>
-                <span className="font-bold">
-                  {`${pageIndex} of ${response && response.meta.pagination.pageCount
-                    }`}
-                </span>
-                <button
-                  className="rounded py-2 px-4 bg-black text-white disabled:bg-gray-200 disabled:text-gray-500"
-                  disabled={pageIndex === response.meta.pagination.pageCount}
-                  onClick={() => setPageIndex(pageIndex + 1)}
-                >
-                  Next
-                </button>
-              </div>
+              <Pagination
+                current={pageIndex}
+                total={total || 0}
+                pageSize={3}
+                onChange={(page) => setPageIndex(page)}
+              />
+              // <div className="flex gap-3 items-center justify-center my-16 md:my-0">
+              //   <button
+              //     className="rounded py-2 px-4 bg-black text-white disabled:bg-gray-200 disabled:text-gray-500"
+              //     disabled={pageIndex === 1}
+              //     onClick={() => setPageIndex(pageIndex - 1)}
+              //   >
+              //     Previous
+              //   </button>
+              //   <span className="font-bold">
+              //     {`${pageIndex} of ${response && response.meta.pagination.pageCount
+              //       }`}
+              //   </span>
+              //   <button
+              //     className="rounded py-2 px-4 bg-black text-white disabled:bg-gray-200 disabled:text-gray-500"
+              //     disabled={pageIndex === response.meta.pagination.pageCount}
+              //     onClick={() => setPageIndex(pageIndex + 1)}
+              //   >
+              //     Next
+              //   </button>
+              // </div>
             )}
           </div>
           {
