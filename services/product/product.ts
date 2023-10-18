@@ -12,7 +12,7 @@ export const getAllProduct = async () => {
     )
 }
 
-export const ProductFilter =  (slug: string, pageIndex?: number, maxResult?: number, option?: any) => {
+export const ProductFilter = (slug: string, pageIndex?: number, maxResult?: number, option?: any) => {
     const { data: response, error, isLoading } = useSWR<NKResponse.CMS.Product>(
         `${API_URL}/api/products?populate=*&[filters][categories][slug][$eq]=${slug}&pagination[page]=${pageIndex}&pagination[pageSize]=${maxResult}`,
         APIClient,
@@ -44,5 +44,10 @@ export const fetchProductNotEqual = (slug: string) => {
         HTTP_METHOD.GET
     )
 }
-
+export const ProductFilterOption = (slug: string) => {
+    return APIClient<NKResponse.CMS.Product>(
+        `${API_URL}/api/products?populate=*&filters[slug][$eq]=${slug}`,
+        HTTP_METHOD.GET
+    )
+}
 

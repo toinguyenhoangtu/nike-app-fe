@@ -133,7 +133,7 @@ declare namespace NKResponse.CMS {
     }
 
     interface Meta {
-        pagination?: Pagination;
+        pagination: Pagination;
     }
 
     interface Pagination {

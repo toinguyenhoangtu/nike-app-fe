@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import { CategoryData } from "types/categories";
 import { filterCategory, getAllCategories } from "@services/category/category";
 import Wrapper from "@components/Wrapper/Wrapper";
-import BreardCumb from "@components/BreardCumb/BreardCumb";
 import ProductCart from "@components/ProductCart/ProductCart";
 import { Pagination } from "antd";
 
@@ -79,7 +78,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export default function Category({ category, products, slug }: IProp) {
   const [pageIndex, setPageIndex] = useState<number>(1);
-
   const router = useRouter();
   const query = router.query.slug;
   const { response, error, isLoading } = ProductFilter(
@@ -100,13 +98,10 @@ export default function Category({ category, products, slug }: IProp) {
   }, [query]);
 
   if (!response || response.data?.length <= 0) return null;
-  if (!response || response.meta.pagination == undefined) return null;
-  
-  const { total } = response.meta.pagination;
+  const total = response.meta.pagination.total;
   return (
     <div className="w-full md:py-10 relative">
       <Wrapper>
-        {/* <BreardCumb cateName={category} productData={products} /> */}
         <Breadscrumb routes={breadScrumbList} />
         <LayoutTransition>
           <div className="text-center max-w-[800px] mx-auto mt-8 md:mt-0">
@@ -118,12 +113,13 @@ export default function Category({ category, products, slug }: IProp) {
                 <ProductCart key={product.id} {...product} />
               ))}
             </div>
-            {response?.meta?.pagination?.total > maxResult && (
+            {total > maxResult && (
               <Pagination
                 current={pageIndex}
                 total={total || 0}
                 pageSize={3}
                 onChange={(page) => setPageIndex(page)}
+                className="nike-pagination"
               />
               // <div className="flex gap-3 items-center justify-center my-16 md:my-0">
               //   <button
