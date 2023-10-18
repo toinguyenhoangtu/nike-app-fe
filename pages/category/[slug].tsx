@@ -5,7 +5,7 @@ import { filterCategory, getAllCategories } from "@services/category/category";
 import Wrapper from "@components/Wrapper/Wrapper";
 import ProductCart from "@components/ProductCart/ProductCart";
 import { Pagination } from "antd";
-
+import { ToggleCustom } from "@components/Toggle/ToggleCustom";
 import type {
   GetStaticPaths,
   GetStaticProps,
@@ -18,8 +18,9 @@ import {
 import LayoutTransition from "@components/LayoutTransition/LayoutTransition";
 import { NKResponse } from "types/product";
 import Breadscrumb, { RouteItem } from "@components/BreadscrumbV2";
+import useToggle from "@hooks/useToggle";
 
-const maxResult = 3;
+const maxResult = 4;
 
 type IProp = {
   category: CategoryData;
@@ -78,6 +79,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export default function Category({ category, products, slug }: IProp) {
   const [pageIndex, setPageIndex] = useState<number>(1);
+  const [classChange, setClassChange] = useState<string>('lg:grid-cols-4')
   const router = useRouter();
   const query = router.query.slug;
   const { response, error, isLoading } = ProductFilter(
@@ -97,6 +99,10 @@ export default function Category({ category, products, slug }: IProp) {
     setPageIndex(1);
   }, [query]);
 
+  useEffect(() => {
+    setClassChange;
+  }, []);
+
   if (!response || response.data?.length <= 0) return null;
   const total = response.meta.pagination.total;
   return (
@@ -108,39 +114,23 @@ export default function Category({ category, products, slug }: IProp) {
             <div className="text-[28px] md:text-[34px] mb-5 font-semibold leading-tight">
               {category?.data?.[0]?.attributes?.name}
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-14 px-5 md:px-0">
+            <ToggleCustom setClassChange={setClassChange} />
+            <div className={`grid grid-cols-1 md:grid-cols-2 ${classChange} gap-5 my-14 px-5 md:px-0`}>
               {response?.data.map((product) => (
-                <ProductCart key={product.id} {...product} />
+                <ProductCart
+                  key={product.id}
+                  {...product}
+                />
               ))}
             </div>
             {total > maxResult && (
               <Pagination
                 current={pageIndex}
                 total={total || 0}
-                pageSize={3}
+                pageSize={4}
                 onChange={(page) => setPageIndex(page)}
                 className="nike-pagination"
               />
-              // <div className="flex gap-3 items-center justify-center my-16 md:my-0">
-              //   <button
-              //     className="rounded py-2 px-4 bg-black text-white disabled:bg-gray-200 disabled:text-gray-500"
-              //     disabled={pageIndex === 1}
-              //     onClick={() => setPageIndex(pageIndex - 1)}
-              //   >
-              //     Previous
-              //   </button>
-              //   <span className="font-bold">
-              //     {`${pageIndex} of ${response && response.meta.pagination.pageCount
-              //       }`}
-              //   </span>
-              //   <button
-              //     className="rounded py-2 px-4 bg-black text-white disabled:bg-gray-200 disabled:text-gray-500"
-              //     disabled={pageIndex === response.meta.pagination.pageCount}
-              //     onClick={() => setPageIndex(pageIndex + 1)}
-              //   >
-              //     Next
-              //   </button>
-              // </div>
             )}
           </div>
           {
