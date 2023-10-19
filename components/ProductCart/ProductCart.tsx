@@ -6,7 +6,7 @@ const ProductCart = (props: NKResponse.CMS.ProductData) => {
     const { attributes } = props;
     if (!attributes) return null;
     return (
-        <div>
+        <div className='relative h-full p-2 bg-white border-spacing-3 transition-all rounded-xl '>
             <Link
                 className='transform overflow-hidden bg-white duration-200 hover:scale-105 cursor-pointer shadow-md rounded-lg'
                 href={`/product/${attributes?.slug}`}
@@ -20,8 +20,8 @@ const ProductCart = (props: NKResponse.CMS.ProductData) => {
                     alt={attributes?.name || ''}
                 />
                 <div className='p-2 text-black/[0.9]'>
-                    <h2 className='text-lg font-medium'>{attributes.name}</h2>
-                    <div className='flex items-center text-black/[0.5]'>
+                    <h2 className='text-base font-bold'>{attributes.name}</h2>
+                    <div className='flex flex-wrap justify-between items-center text-black/[0.5]'>
                         <p className="mr-2 text-lg font-semibold">
                             &#8377;{attributes?.price}
                         </p>

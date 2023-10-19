@@ -4,8 +4,8 @@ import { CategoryData } from "types/categories";
 import { filterCategory, getAllCategories } from "@services/category/category";
 import Wrapper from "@components/Wrapper/Wrapper";
 import ProductCart from "@components/ProductCart/ProductCart";
-import { Pagination } from "antd";
 import { ToggleCustom } from "@components/Toggle/ToggleCustom";
+import { Pagination } from "antd"
 import type {
   GetStaticPaths,
   GetStaticProps,
@@ -18,10 +18,9 @@ import {
 import LayoutTransition from "@components/LayoutTransition/LayoutTransition";
 import { NKResponse } from "types/product";
 import Breadscrumb, { RouteItem } from "@components/BreadscrumbV2";
-import useToggle from "@hooks/useToggle";
-
+import Loading from "@components/Loading/loading";
+import FilterOption from "@components/Filters/FilterEnhancement/FilterOption";
 const maxResult = 4;
-
 type IProp = {
   category: CategoryData;
   products: NKResponse.CMS.Product;
@@ -110,35 +109,39 @@ export default function Category({ category, products, slug }: IProp) {
       <Wrapper>
         <Breadscrumb routes={breadScrumbList} />
         <LayoutTransition>
-          <div className="text-center max-w-[800px] mx-auto mt-8 md:mt-0">
-            <div className="text-[28px] md:text-[34px] mb-5 font-semibold leading-tight">
-              {category?.data?.[0]?.attributes?.name}
+          <div className="md:grid md:grid-cols-[289px_907fr] md:gap-5">
+            <div className="sticky top-3 rounded-xl bg-white pb-4 max-w-[300px] w-full max-h-min">
+              <FilterOption />
             </div>
-            <ToggleCustom setClassChange={setClassChange} />
-            <div className={`grid grid-cols-1 md:grid-cols-2 ${classChange} gap-5 my-14 px-5 md:px-0`}>
-              {response?.data.map((product) => (
-                <ProductCart
-                  key={product.id}
-                  {...product}
+            <div className="text-center max-w-[900px] mx-auto mt-8 md:mt-0">
+              <div className="text-[28px] md:text-[34px] mb-5 font-semibold leading-tight">
+                {category?.data?.[0]?.attributes?.name}
+              </div>
+              <ToggleCustom setClassChange={setClassChange} />
+              <div className={`grid grid-cols-2 md:grid-cols-2 ${classChange} gap-5 my-14 px-5 md:px-0`}>
+                {response?.data.map((product) => (
+                  <ProductCart
+                    key={product.id}
+                    {...product}
+                  />
+                ))}
+              </div>
+              {total > maxResult && (
+                <Pagination
+                  current={pageIndex}
+                  total={total || 0}
+                  pageSize={4}
+                  onChange={(page) => setPageIndex(page)}
+                  className="nike-pagination"
                 />
-              ))}
+              )}
             </div>
-            {total > maxResult && (
-              <Pagination
-                current={pageIndex}
-                total={total || 0}
-                pageSize={4}
-                onChange={(page) => setPageIndex(page)}
-                className="nike-pagination"
-              />
-            )}
           </div>
+
           {
             isLoading && (
-              <div className="logo-custom absolute top-0 left-0 w-full h-full bg-white/[0.5] flex flex-col gap-5 justify-center items-center">
-                <img src="/logo.svg" width={150} />
-                <span className="text-2xl font-medium">Loading...</span>
-              </div>
+              // Loading component
+              <Loading />
             )
           }
         </LayoutTransition>

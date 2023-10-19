@@ -9,6 +9,7 @@
     line-height: 24px;
 
     color: rgba(0, 0, 0, 1);
+    
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -108,6 +109,9 @@
     height: 6px;
     transform-origin: 0 0;
   }
+main{
+    background-color: #edf0f3;
+}
 @media screen and (max-width: 767px) {
     .productCarousel.carousel-root {
         flex-direction: column;
