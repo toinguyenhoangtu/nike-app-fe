@@ -23,7 +23,7 @@ const login = () => {
         setIsLoading(true);
         try {
             const req = await submitLogin(formData);
-            localStorage.setItem('NikeUser', req?.user?.username)
+            localStorage.setItem('NikeUser', req.user?.username)
             router.push('/')
         } catch (error: any) {
             toast.error(error?.error.message);

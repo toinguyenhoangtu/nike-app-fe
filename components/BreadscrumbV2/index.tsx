@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import React from 'react'
-import IoIosArrowForward from 'react-icons'
 // Proxy Component --> Meaning reuseable Component
 
 type RouteItem = {
@@ -20,7 +19,7 @@ const homeRoutes = {
 const Breadscrumb = (props: BreadscrumbProps) => {
     const { routes } = props;
 
-    if (routes.length === 0 || !Array.isArray(routes)) return;
+    if (routes.length === 0 || !Array.isArray(routes)) return null;
 
     const compoundRoutes = [homeRoutes].concat(routes);
 

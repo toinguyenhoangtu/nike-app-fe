@@ -18,7 +18,7 @@ import {
 import LayoutTransition from "@components/LayoutTransition/LayoutTransition";
 import { NKResponse } from "types/product";
 import Breadscrumb, { RouteItem } from "@components/BreadscrumbV2";
-import Loading from "@components/Loading/loading";
+import Loading from "@components/Loading/Loading";
 import FilterOption from "@components/Filters/FilterEnhancement/FilterOption";
 const maxResult = 4;
 type IProp = {

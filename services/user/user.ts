@@ -22,7 +22,7 @@ export const submitLogin = async (
         password: string,
     }
 ) => {
-    return APIClient<NKResponse.Customers.Customer>(
+    return APIClient<NKResponse.Customers.CustomerRespones>(
         `${API_URL}/api/auth/local`,
         HTTP_METHOD.POST,
         payload

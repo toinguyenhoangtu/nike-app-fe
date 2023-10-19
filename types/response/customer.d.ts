@@ -25,6 +25,15 @@ declare namespace NKResponse.Customers {
     }
   }
 
+  interface CustomerRespones {
+    jwt: string,
+    user: {
+      id: number,
+      username: string,
+      email: string,
+    }
+  }
+
   interface Avatar {
     id: number
     avatar: string
